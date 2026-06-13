@@ -1,0 +1,1705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AIToolsHub – AI Tools for Indian Businesses & Creators</title>
+<meta name="description" content="Premium AI tools for freelancers, agencies, startups & MSMEs. Boost productivity, automate tasks, and grow your business with 100+ AI-powered tools.">
+<meta name="keywords" content="AI tools India, AI software, freelancer tools, MSME tools, GST tools, content creator AI, AI business tools">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<style>
+:root {
+  --bg: #09090b;
+  --bg2: #111116;
+  --bg3: #18181f;
+  --surface: #1e1e28;
+  --surface2: #252530;
+  --border: rgba(255,255,255,0.08);
+  --border2: rgba(255,255,255,0.14);
+  --text: #f4f4f6;
+  --text2: #a1a1aa;
+  --text3: #71717a;
+  --accent: #7c5cfc;
+  --accent2: #9b7fff;
+  --accent3: #c4b5fd;
+  --green: #22c55e;
+  --amber: #f59e0b;
+  --red: #ef4444;
+  --cyan: #06b6d4;
+  --pink: #ec4899;
+  --font: 'DM Sans', sans-serif;
+  --display: 'Syne', sans-serif;
+  --mono: 'DM Mono', monospace;
+  --r: 12px;
+  --r2: 20px;
+  --shadow: 0 0 0 1px rgba(124,92,252,0.15), 0 8px 40px rgba(0,0,0,0.4);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--font);font-size:16px;line-height:1.6;overflow-x:hidden}
+.hidden{display:none!important}
+a{color:inherit;text-decoration:none}
+button{cursor:pointer;font-family:var(--font);border:none;outline:none}
+input,select,textarea{font-family:var(--font);background:var(--surface);border:1px solid var(--border);color:var(--text);border-radius:var(--r);padding:10px 14px;width:100%;font-size:14px;outline:none;transition:.2s}
+input:focus,select:focus,textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(124,92,252,.15)}
+label{font-size:13px;color:var(--text2);margin-bottom:6px;display:block;font-weight:500}
+h1,h2,h3,h4,h5{font-family:var(--display);font-weight:700;line-height:1.2}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(9,9,11,.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);height:64px;display:flex;align-items:center}
+.nav-inner{max-width:1280px;margin:0 auto;padding:0 24px;width:100%;display:flex;align-items:center;gap:32px}
+.logo{font-family:var(--display);font-weight:800;font-size:22px;color:var(--text);flex-shrink:0}
+.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:4px;flex:1}
+.nav-links a{padding:6px 14px;border-radius:8px;font-size:14px;font-weight:500;color:var(--text2);transition:.15s}
+.nav-links a:hover,.nav-links a.active{color:var(--text);background:var(--surface)}
+.nav-right{display:flex;gap:10px;align-items:center;margin-left:auto}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:8px 18px;border-radius:10px;font-size:14px;font-weight:600;transition:.15s;cursor:pointer}
+.btn-ghost{background:transparent;border:1px solid var(--border2);color:var(--text2)}
+.btn-ghost:hover{background:var(--surface);color:var(--text);border-color:var(--border2)}
+.btn-primary{background:var(--accent);color:#fff;border:1px solid transparent;box-shadow:0 0 20px rgba(124,92,252,.3)}
+.btn-primary:hover{background:var(--accent2);transform:translateY(-1px);box-shadow:0 0 30px rgba(124,92,252,.5)}
+.btn-lg{padding:14px 28px;font-size:16px;border-radius:var(--r)}
+.btn-xl{padding:16px 36px;font-size:18px;border-radius:14px}
+.hamburger{display:none;background:transparent;border:1px solid var(--border2);border-radius:8px;padding:8px;color:var(--text)}
+
+/* ── PAGES ── */
+.page{display:none;min-height:100vh;padding-top:64px}
+.page.active{display:block}
+
+/* ── HERO ── */
+.hero{max-width:1280px;margin:0 auto;padding:100px 24px 80px;text-align:center}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(124,92,252,.12);border:1px solid rgba(124,92,252,.3);border-radius:100px;padding:6px 16px;font-size:13px;color:var(--accent3);font-weight:600;margin-bottom:28px}
+.hero-badge::before{content:'';width:8px;height:8px;background:var(--accent);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.hero h1{font-size:clamp(42px,7vw,80px);font-weight:800;letter-spacing:-2px;margin-bottom:24px;line-height:1.05}
+.hero h1 .grad{background:linear-gradient(135deg,var(--accent2) 0%,var(--cyan) 50%,var(--pink) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{font-size:clamp(16px,2vw,20px);color:var(--text2);max-width:640px;margin:0 auto 40px;font-weight:400}
+.hero-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:60px}
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--r2);overflow:hidden;max-width:800px;margin:0 auto}
+.stat-box{background:var(--bg2);padding:28px 20px;text-align:center}
+.stat-num{font-family:var(--display);font-size:32px;font-weight:800;color:var(--text)}
+.stat-label{font-size:12px;color:var(--text3);margin-top:4px;text-transform:uppercase;letter-spacing:.8px}
+
+/* ── TOOL GRID ── */
+.section{max-width:1280px;margin:0 auto;padding:80px 24px}
+.section-header{text-align:center;margin-bottom:56px}
+.section-header .eyebrow{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--accent);margin-bottom:12px}
+.section-header h2{font-size:clamp(28px,4vw,44px);font-weight:800;letter-spacing:-1px;margin-bottom:16px}
+.section-header p{font-size:16px;color:var(--text2);max-width:520px;margin:0 auto}
+
+.tools-filter{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:40px}
+.filter-btn{padding:8px 18px;border-radius:100px;border:1px solid var(--border2);background:transparent;color:var(--text2);font-size:13px;font-weight:500;transition:.15s}
+.filter-btn:hover,.filter-btn.active{background:var(--accent);border-color:var(--accent);color:#fff}
+
+.tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.tool-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r2);padding:24px;transition:.2s;cursor:pointer;position:relative;overflow:hidden}
+.tool-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(124,92,252,.08),transparent 60%);opacity:0;transition:.3s;pointer-events:none}
+.tool-card:hover::before{opacity:1}
+.tool-card:hover{border-color:rgba(124,92,252,.4);transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,.3)}
+.tool-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:16px}
+.tool-card h3{font-size:17px;font-weight:700;margin-bottom:8px;font-family:var(--display)}
+.tool-card p{font-size:13px;color:var(--text2);line-height:1.6;margin-bottom:16px}
+.tool-meta{display:flex;justify-content:space-between;align-items:center}
+.tool-badge{font-size:11px;font-weight:700;padding:4px 10px;border-radius:100px;text-transform:uppercase;letter-spacing:.5px}
+.badge-free{background:rgba(34,197,94,.12);color:var(--green);border:1px solid rgba(34,197,94,.2)}
+.badge-pro{background:rgba(124,92,252,.15);color:var(--accent3);border:1px solid rgba(124,92,252,.25)}
+.badge-new{background:rgba(6,182,212,.12);color:var(--cyan);border:1px solid rgba(6,182,212,.2)}
+.tool-rating{font-size:12px;color:var(--text3);display:flex;align-items:center;gap:4px}
+.tool-rating .star{color:var(--amber)}
+
+/* ── PRICING ── */
+.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;max-width:1100px;margin:0 auto}
+.price-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r2);padding:36px;position:relative;transition:.2s}
+.price-card.popular{border-color:var(--accent);box-shadow:0 0 0 1px rgba(124,92,252,.3),0 20px 60px rgba(124,92,252,.15)}
+.popular-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--accent);color:#fff;font-size:12px;font-weight:700;padding:4px 16px;border-radius:100px;white-space:nowrap}
+.plan-name{font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--text3);margin-bottom:16px}
+.plan-price{display:flex;align-items:baseline;gap:4px;margin-bottom:8px}
+.plan-price .amount{font-family:var(--display);font-size:48px;font-weight:800;color:var(--text)}
+.plan-price .period{font-size:14px;color:var(--text3);font-weight:500}
+.plan-price .currency{font-size:22px;color:var(--text2);align-self:flex-start;margin-top:10px}
+.plan-desc{font-size:14px;color:var(--text2);margin-bottom:28px;min-height:44px}
+.plan-features{list-style:none;margin-bottom:32px;display:flex;flex-direction:column;gap:12px}
+.plan-features li{font-size:14px;color:var(--text2);display:flex;align-items:flex-start;gap:10px}
+.plan-features li::before{content:'✓';color:var(--green);font-weight:700;flex-shrink:0;margin-top:1px}
+.plan-features li.no::before{content:'✕';color:var(--red)}
+
+/* ── AFFILIATE ── */
+.affiliate-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+.aff-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r2);padding:24px;transition:.2s}
+.aff-card:hover{border-color:var(--border2);transform:translateY(-2px)}
+.aff-logo{width:56px;height:56px;border-radius:var(--r);background:var(--bg3);display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:16px}
+.aff-comm{font-family:var(--display);font-size:28px;font-weight:800;color:var(--accent2);margin-bottom:4px}
+.aff-name{font-size:15px;font-weight:600;margin-bottom:8px;font-family:var(--display)}
+.aff-desc{font-size:12px;color:var(--text3);margin-bottom:16px;line-height:1.5}
+
+/* ── BLOG ── */
+.blog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:24px}
+.blog-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r2);overflow:hidden;transition:.2s;cursor:pointer}
+.blog-card:hover{border-color:var(--border2);transform:translateY(-3px);box-shadow:0 16px 48px rgba(0,0,0,.3)}
+.blog-thumb{height:200px;background:var(--bg3);display:flex;align-items:center;justify-content:center;font-size:48px;position:relative;overflow:hidden}
+.blog-thumb-bg{position:absolute;inset:0;opacity:.15}
+.blog-body{padding:24px}
+.blog-tag{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--accent);margin-bottom:10px}
+.blog-card h3{font-size:18px;font-weight:700;margin-bottom:10px;line-height:1.3;font-family:var(--display)}
+.blog-card p{font-size:13px;color:var(--text2);line-height:1.6;margin-bottom:16px}
+.blog-meta{display:flex;justify-content:space-between;font-size:12px;color:var(--text3)}
+
+/* ── AUTH MODAL ── */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);backdrop-filter:blur(10px);z-index:2000;align-items:center;justify-content:center;padding:20px}
+.modal-overlay.open{display:flex}
+.modal{background:var(--bg2);border:1px solid var(--border2);border-radius:24px;padding:40px;width:100%;max-width:440px;position:relative}
+.modal-close{position:absolute;top:16px;right:16px;background:var(--surface);border:1px solid var(--border);border-radius:8px;width:32px;height:32px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--text2);font-size:18px;transition:.15s}
+.modal-close:hover{background:var(--surface2);color:var(--text)}
+.modal h2{font-size:26px;font-weight:800;margin-bottom:8px;font-family:var(--display)}
+.modal-sub{font-size:14px;color:var(--text2);margin-bottom:28px}
+.form-group{margin-bottom:18px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.divider{display:flex;align-items:center;gap:12px;margin:20px 0;color:var(--text3);font-size:13px}
+.divider::before,.divider::after{content:'';flex:1;height:1px;background:var(--border)}
+.social-btn{display:flex;align-items:center;justify-content:center;gap:10px;padding:12px;border-radius:var(--r);border:1px solid var(--border2);background:transparent;color:var(--text);font-size:14px;font-weight:500;width:100%;transition:.15s}
+.social-btn:hover{background:var(--surface);border-color:var(--border2)}
+.tab-switcher{display:flex;background:var(--surface);border-radius:var(--r);padding:4px;margin-bottom:28px}
+.tab-switcher button{flex:1;padding:8px;border-radius:8px;background:transparent;color:var(--text2);font-size:14px;font-weight:500;transition:.15s;border:none}
+.tab-switcher button.active{background:var(--accent);color:#fff}
+
+/* ── DASHBOARD ── */
+.dash-layout{display:grid;grid-template-columns:240px 1fr;min-height:calc(100vh - 64px)}
+.dash-sidebar{background:var(--bg2);border-right:1px solid var(--border);padding:24px 0;position:sticky;top:64px;height:calc(100vh - 64px);overflow-y:auto}
+.sidebar-section{padding:0 12px;margin-bottom:24px}
+.sidebar-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--text3);padding:0 12px;margin-bottom:8px}
+.sidebar-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;cursor:pointer;transition:.15s;font-size:14px;font-weight:500;color:var(--text2)}
+.sidebar-item:hover{background:var(--surface);color:var(--text)}
+.sidebar-item.active{background:rgba(124,92,252,.15);color:var(--accent3)}
+.sidebar-item .icon{font-size:18px;width:22px;text-align:center}
+.sidebar-item .badge-count{margin-left:auto;background:var(--accent);color:#fff;font-size:11px;font-weight:700;padding:2px 8px;border-radius:100px}
+.dash-main{padding:32px;background:var(--bg)}
+.dash-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:32px}
+.dash-title{font-size:26px;font-weight:800;font-family:var(--display);margin-bottom:4px}
+.dash-sub{font-size:14px;color:var(--text2)}
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:28px}
+.kpi{background:var(--surface);border:1px solid var(--border);border-radius:var(--r2);padding:24px}
+.kpi-label{font-size:12px;color:var(--text3);text-transform:uppercase;letter-spacing:.8px;margin-bottom:8px}
+.kpi-value{font-family:var(--display);font-size:28px;font-weight:800;margin-bottom:4px}
+.kpi-change{font-size:12px;display:flex;align-items:center;gap:4px}
+.kpi-change.up{color:var(--green)}
+.kpi-change.down{color:var(--red)}
+.dash-grid{display:grid;grid-template-columns:1fr 340px;gap:20px;margin-bottom:20px}
+.dash-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r2);padding:24px}
+.dash-card-title{font-size:15px;font-weight:700;margin-bottom:20px;font-family:var(--display);display:flex;justify-content:space-between;align-items:center}
+.recent-list{display:flex;flex-direction:column;gap:0}
+.recent-item{display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid var(--border)}
+.recent-item:last-child{border-bottom:none}
+.recent-avatar{width:36px;height:36px;border-radius:50%;background:rgba(124,92,252,.2);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:var(--accent3);flex-shrink:0}
+.recent-info{flex:1}
+.recent-name{font-size:14px;font-weight:600}
+.recent-detail{font-size:12px;color:var(--text3)}
+.recent-amount{font-family:var(--mono);font-size:14px;font-weight:600;color:var(--green)}
+
+/* ── ADMIN ── */
+.admin-tabs{display:flex;gap:0;border-bottom:1px solid var(--border);margin-bottom:28px}
+.admin-tab{padding:12px 20px;font-size:14px;font-weight:600;color:var(--text2);border-bottom:2px solid transparent;cursor:pointer;transition:.15s;background:none;border-top:none;border-left:none;border-right:none;font-family:var(--font)}
+.admin-tab.active{color:var(--accent);border-bottom-color:var(--accent)}
+.admin-tab:hover{color:var(--text)}
+.table-wrap{overflow-x:auto;border-radius:var(--r);border:1px solid var(--border)}
+table{width:100%;border-collapse:collapse;font-size:14px}
+thead{background:var(--surface)}
+th{padding:12px 16px;text-align:left;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--text3);white-space:nowrap}
+td{padding:14px 16px;border-bottom:1px solid var(--border);vertical-align:middle}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:hover{background:rgba(255,255,255,.02)}
+.status-dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px}
+.dot-green{background:var(--green)}
+.dot-amber{background:var(--amber)}
+.dot-red{background:var(--red)}
+
+/* ── FAQ ── */
+.faq-list{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+.faq-item{background:var(--surface);border:1px solid var(--border);border-radius:var(--r2);overflow:hidden;transition:.2s}
+.faq-item.open{border-color:rgba(124,92,252,.3)}
+.faq-q{padding:20px 24px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-size:16px;font-weight:600;gap:16px}
+.faq-q .arrow{width:24px;height:24px;border-radius:6px;background:var(--bg3);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:.2s;font-size:14px;color:var(--text2)}
+.faq-item.open .faq-q .arrow{transform:rotate(180deg);background:rgba(124,92,252,.15);color:var(--accent)}
+.faq-a{display:none;padding:0 24px 20px;color:var(--text2);font-size:15px;line-height:1.7}
+.faq-item.open .faq-a{display:block}
+
+/* ── REVIEWS ── */
+.reviews-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+.review-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r2);padding:24px}
+.review-stars{color:var(--amber);font-size:16px;margin-bottom:14px;letter-spacing:2px}
+.review-text{font-size:15px;line-height:1.7;color:var(--text);margin-bottom:20px;font-style:italic}
+.review-author{display:flex;align-items:center;gap:12px}
+.review-avatar{width:40px;height:40px;border-radius:50%;background:rgba(124,92,252,.2);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:var(--accent3)}
+.review-name{font-size:14px;font-weight:700}
+.review-role{font-size:12px;color:var(--text3)}
+
+/* ── CONTACT ── */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;max-width:1000px;margin:0 auto}
+.contact-info h3{font-size:26px;font-weight:800;margin-bottom:16px;font-family:var(--display)}
+.contact-info p{color:var(--text2);font-size:15px;margin-bottom:32px;line-height:1.7}
+.contact-method{display:flex;align-items:flex-start;gap:14px;margin-bottom:20px}
+.contact-icon{width:44px;height:44px;background:rgba(124,92,252,.12);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.contact-label{font-size:12px;color:var(--text3);margin-bottom:2px}
+.contact-value{font-size:15px;font-weight:600}
+.contact-form{background:var(--surface);border:1px solid var(--border);border-radius:var(--r2);padding:36px}
+.contact-form h3{font-size:22px;font-weight:800;margin-bottom:24px;font-family:var(--display)}
+
+/* ── TOOL SUBMISSION ── */
+.submit-form{max-width:700px;margin:0 auto;background:var(--surface);border:1px solid var(--border);border-radius:var(--r2);padding:40px}
+.submit-form h2{font-size:28px;font-weight:800;margin-bottom:8px;font-family:var(--display)}
+.submit-form .sub{font-size:15px;color:var(--text2);margin-bottom:32px}
+
+/* ── LEADS ── */
+.lead-banner{background:linear-gradient(135deg,var(--accent) 0%,#5a3dcf 100%);border-radius:var(--r2);padding:56px 48px;text-align:center;position:relative;overflow:hidden;max-width:900px;margin:0 auto}
+.lead-banner h2{font-size:clamp(24px,4vw,40px);font-weight:800;margin-bottom:16px;font-family:var(--display)}
+.lead-banner p{font-size:16px;opacity:.85;margin-bottom:32px;max-width:520px;margin-left:auto;margin-right:auto}
+.lead-form{display:flex;gap:12px;max-width:480px;margin:0 auto;flex-wrap:wrap}
+.lead-form input{flex:1;min-width:220px;background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.3);color:#fff}
+.lead-form input::placeholder{color:rgba(255,255,255,.6)}
+.lead-form button{padding:12px 28px;background:#fff;color:var(--accent);font-weight:700;border-radius:var(--r);border:none;font-size:15px;cursor:pointer;white-space:nowrap;transition:.15s;font-family:var(--font)}
+.lead-form button:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(0,0,0,.2)}
+
+/* ── PAYMENT ── */
+.payment-methods{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px}
+.pay-badge{display:flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:10px 16px;font-size:13px;font-weight:600;color:var(--text2)}
+.pay-badge .pay-icon{font-size:20px}
+
+/* ── NOTIFICATIONS ── */
+.toast{position:fixed;bottom:24px;right:24px;background:var(--surface);border:1px solid var(--border2);border-radius:var(--r);padding:14px 20px;font-size:14px;font-weight:600;z-index:9999;transform:translateX(150%);transition:.3s;max-width:320px;box-shadow:0 8px 40px rgba(0,0,0,.4)}
+.toast.show{transform:translateX(0)}
+.toast.success{border-color:rgba(34,197,94,.4);color:var(--green)}
+.toast.error{border-color:rgba(239,68,68,.4);color:var(--red)}
+
+/* ── FOOTER ── */
+footer{background:var(--bg2);border-top:1px solid var(--border);padding:64px 24px 32px}
+.footer-inner{max-width:1280px;margin:0 auto}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px}
+.footer-brand p{font-size:14px;color:var(--text3);margin-top:12px;line-height:1.7;max-width:240px}
+.footer-col h4{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--text3);margin-bottom:16px}
+.footer-col a{display:block;font-size:14px;color:var(--text3);margin-bottom:10px;transition:.15s}
+.footer-col a:hover{color:var(--text)}
+.footer-bottom{border-top:1px solid var(--border);padding-top:24px;display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--text3)}
+.footer-soc{display:flex;gap:12px}
+.soc-icon{width:36px;height:36px;background:var(--surface);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;transition:.15s}
+.soc-icon:hover{background:var(--surface2);color:var(--text)}
+
+/* ── ANALYTICS ── */
+.analytics-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:28px}
+.chart-container{position:relative;height:260px;width:100%}
+.analytics-bar{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)}
+.analytics-bar:last-child{border-bottom:none}
+.bar-label{font-size:13px;color:var(--text2);width:120px;flex-shrink:0}
+.bar-track{flex:1;height:6px;background:var(--bg3);border-radius:100px;overflow:hidden}
+.bar-fill{height:100%;border-radius:100px;background:linear-gradient(90deg,var(--accent),var(--cyan))}
+.bar-val{font-size:13px;font-weight:700;width:60px;text-align:right;font-family:var(--mono);flex-shrink:0}
+
+/* ── CRM INTEGRATION ── */
+.integration-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px}
+.integration-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:20px;text-align:center;transition:.2s}
+.integration-card:hover{border-color:var(--border2)}
+.integration-icon{font-size:36px;margin-bottom:12px}
+.integration-name{font-size:14px;font-weight:700;margin-bottom:4px}
+.integration-status{font-size:12px;display:flex;align-items:center;justify-content:center;gap:4px}
+.int-toggle{position:relative;display:inline-block;width:42px;height:22px;margin-top:12px}
+.int-toggle input{opacity:0;width:0;height:0}
+.int-slider{position:absolute;cursor:pointer;inset:0;background:var(--bg3);border-radius:100px;transition:.3s}
+.int-slider::before{content:'';position:absolute;height:16px;width:16px;left:3px;bottom:3px;background:var(--text3);border-radius:50%;transition:.3s}
+.int-toggle input:checked+.int-slider{background:var(--accent)}
+.int-toggle input:checked+.int-slider::before{transform:translateX(20px);background:#fff}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .hero-stats{grid-template-columns:repeat(2,1fr)}
+  .kpi-grid{grid-template-columns:repeat(2,1fr)}
+  .dash-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .contact-grid{grid-template-columns:1fr}
+  .dash-layout{grid-template-columns:1fr}
+  .dash-sidebar{display:none}
+}
+@media(max-width:640px){
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .hero h1{font-size:36px}
+  .hero-stats{grid-template-columns:repeat(2,1fr)}
+  .footer-grid{grid-template-columns:1fr}
+  .kpi-grid{grid-template-columns:1fr 1fr}
+}
+/* ── UTILITY ── */
+.glow{box-shadow:0 0 60px rgba(124,92,252,.2)}
+.tag{display:inline-block;font-size:11px;font-weight:700;padding:3px 10px;border-radius:100px;text-transform:uppercase;letter-spacing:.6px}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:100px;border:1px solid var(--border2);font-size:13px;font-weight:500;color:var(--text2)}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="logo">AI<span>Tools</span>Hub</div>
+    <div class="nav-links">
+      <a href="#" class="active" onclick="showPage('home');return false">Home</a>
+      <a href="#" onclick="showPage('tools');return false">Tools</a>
+      <a href="#" onclick="showPage('pricing');return false">Pricing</a>
+      <a href="#" onclick="showPage('affiliate');return false">Affiliate</a>
+      <a href="#" onclick="showPage('blog');return false">Blog</a>
+      <a href="#" onclick="showPage('contact');return false">Contact</a>
+    </div>
+    <div class="nav-right">
+      <button class="btn btn-ghost" onclick="openModal('login')">Login</button>
+      <button class="btn btn-primary" onclick="openModal('register')">Get Started Free</button>
+    </div>
+    <button class="hamburger" onclick="toggleMobileMenu()" id="hamburger">☰</button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU (hidden, toggles) -->
+<div id="mobileMenu" style="display:none;position:fixed;top:64px;left:0;right:0;z-index:999;background:var(--bg2);border-bottom:1px solid var(--border);padding:16px">
+  <div style="display:flex;flex-direction:column;gap:4px">
+    <a href="#" style="padding:12px 16px;border-radius:10px;font-size:15px;font-weight:500;color:var(--text2);display:block" onclick="showPage('home');toggleMobileMenu();return false">🏠 Home</a>
+    <a href="#" style="padding:12px 16px;border-radius:10px;font-size:15px;font-weight:500;color:var(--text2);display:block" onclick="showPage('tools');toggleMobileMenu();return false">🛠 Tools</a>
+    <a href="#" style="padding:12px 16px;border-radius:10px;font-size:15px;font-weight:500;color:var(--text2);display:block" onclick="showPage('pricing');toggleMobileMenu();return false">💳 Pricing</a>
+    <a href="#" style="padding:12px 16px;border-radius:10px;font-size:15px;font-weight:500;color:var(--text2);display:block" onclick="showPage('affiliate');toggleMobileMenu();return false">🤝 Affiliate</a>
+    <a href="#" style="padding:12px 16px;border-radius:10px;font-size:15px;font-weight:500;color:var(--text2);display:block" onclick="showPage('blog');toggleMobileMenu();return false">📝 Blog</a>
+    <a href="#" style="padding:12px 16px;border-radius:10px;font-size:15px;font-weight:500;color:var(--text2);display:block" onclick="showPage('contact');toggleMobileMenu();return false">📞 Contact</a>
+    <div style="display:flex;gap:10px;padding:8px 0;margin-top:8px;border-top:1px solid var(--border)">
+      <button class="btn btn-ghost" style="flex:1" onclick="openModal('login')">Login</button>
+      <button class="btn btn-primary" style="flex:1" onclick="openModal('register')">Sign Up</button>
+    </div>
+  </div>
+</div>
+
+<!-- ────────────── PAGE: HOME ────────────── -->
+<div id="page-home" class="page active">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-badge">🚀 India's #1 AI Tools Marketplace</div>
+    <h1>The AI Toolkit for<br><span class="grad">Every Indian Business</span></h1>
+    <p class="hero-sub">100+ premium AI tools for freelancers, agencies, MSMEs, and creators. Save 40+ hours per week. Start free.</p>
+    <div class="hero-ctas">
+      <button class="btn btn-primary btn-xl" onclick="showPage('tools')">Explore 100+ Tools →</button>
+      <button class="btn btn-ghost btn-xl" onclick="showPage('pricing')">View Pricing</button>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-box"><div class="stat-num">50K+</div><div class="stat-label">Active Users</div></div>
+      <div class="stat-box"><div class="stat-num">100+</div><div class="stat-label">AI Tools</div></div>
+      <div class="stat-box"><div class="stat-num">₹2Cr+</div><div class="stat-label">Saved by Users</div></div>
+      <div class="stat-box"><div class="stat-num">4.9★</div><div class="stat-label">User Rating</div></div>
+    </div>
+  </div>
+
+  <!-- FEATURED TOOLS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="eyebrow">Featured</div>
+      <h2>Most Popular Tools</h2>
+      <p>Hand-picked tools that save you the most time and money</p>
+    </div>
+    <div class="tools-grid">
+      <div class="tool-card" onclick="showPage('tools')">
+        <div class="tool-icon" style="background:rgba(124,92,252,.15)">🤖</div>
+        <h3>AI Content Writer</h3>
+        <p>Write blogs, ads, emails & social posts in Hindi or English. 10x faster than manual writing.</p>
+        <div class="tool-meta"><span class="tool-badge badge-pro">Pro</span><span class="tool-rating"><span class="star">★</span> 4.9 (2.3k)</span></div>
+      </div>
+      <div class="tool-card" onclick="showPage('tools')">
+        <div class="tool-icon" style="background:rgba(34,197,94,.12)">📊</div>
+        <h3>GST Invoice Generator</h3>
+        <p>Create GST-compliant invoices instantly. Export to PDF. Supports all Indian tax slabs.</p>
+        <div class="tool-meta"><span class="tool-badge badge-free">Free</span><span class="tool-rating"><span class="star">★</span> 4.8 (5.1k)</span></div>
+      </div>
+      <div class="tool-card" onclick="showPage('tools')">
+        <div class="tool-icon" style="background:rgba(6,182,212,.12)">🎨</div>
+        <h3>AI Image Creator</h3>
+        <p>Generate stunning product images, thumbnails, and social banners. No design skills needed.</p>
+        <div class="tool-meta"><span class="tool-badge badge-pro">Pro</span><span class="tool-rating"><span class="star">★</span> 4.7 (1.8k)</span></div>
+      </div>
+      <div class="tool-card" onclick="showPage('tools')">
+        <div class="tool-icon" style="background:rgba(245,158,11,.12)">📱</div>
+        <h3>Social Media Scheduler</h3>
+        <p>Schedule posts across Instagram, YouTube, Twitter & LinkedIn. Auto-post at peak times.</p>
+        <div class="tool-meta"><span class="tool-badge badge-new">New</span><span class="tool-rating"><span class="star">★</span> 4.9 (890)</span></div>
+      </div>
+      <div class="tool-card" onclick="showPage('tools')">
+        <div class="tool-icon" style="background:rgba(236,72,153,.12)">📧</div>
+        <h3>Email Marketing AI</h3>
+        <p>Write high-converting email sequences, subject lines, and newsletters in minutes.</p>
+        <div class="tool-meta"><span class="tool-badge badge-pro">Pro</span><span class="tool-rating"><span class="star">★</span> 4.6 (1.2k)</span></div>
+      </div>
+      <div class="tool-card" onclick="showPage('tools')">
+        <div class="tool-icon" style="background:rgba(34,197,94,.12)">💰</div>
+        <h3>Freelance Rate Calculator</h3>
+        <p>Calculate your ideal INR rate for any project. Considers market rates, skills & experience.</p>
+        <div class="tool-meta"><span class="tool-badge badge-free">Free</span><span class="tool-rating"><span class="star">★</span> 4.8 (3.4k)</span></div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:36px">
+      <button class="btn btn-ghost btn-lg" onclick="showPage('tools')">View All 100+ Tools →</button>
+    </div>
+  </div>
+
+  <!-- EMAIL LEAD CAPTURE -->
+  <div class="section" style="padding-top:0">
+    <div class="lead-banner">
+      <h2>Get 5 Premium Tools Free</h2>
+      <p>Join 50,000+ Indian professionals. Get our curated AI toolkit + weekly business tips — no spam, unsubscribe anytime.</p>
+      <div class="lead-form">
+        <input type="email" id="leadEmail" placeholder="Enter your email address">
+        <button onclick="captureEmail()">Claim Free Tools</button>
+      </div>
+      <p style="font-size:12px;opacity:.6;margin-top:16px">🔒 Your data is safe. No spam ever. Unsubscribe anytime.</p>
+    </div>
+  </div>
+
+  <!-- REVIEWS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="eyebrow">Testimonials</div>
+      <h2>Loved by Indian Professionals</h2>
+      <p>See what our users are saying about AIToolsHub</p>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"AIToolsHub ne meri freelancing income 3x kar di! Content writing tool bahut powerful hai. Highly recommended for all Indian freelancers."</p>
+        <div class="review-author"><div class="review-avatar">PR</div><div><div class="review-name">Priya Rajput</div><div class="review-role">Freelance Writer, Pune</div></div></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"As a CA firm owner, the GST tool saves me 2+ hours daily. The client reporting dashboard is exactly what we needed. Best ₹499 I spend monthly."</p>
+        <div class="review-author"><div class="review-avatar">SK</div><div><div class="review-name">Suresh Kumar CA</div><div class="review-role">CA Firm Owner, Mumbai</div></div></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Our digital marketing agency scaled from 5 to 20 clients using the AI tools. Social media scheduler alone pays for the entire subscription 10x over."</p>
+        <div class="review-author"><div class="review-avatar">AV</div><div><div class="review-name">Anita Verma</div><div class="review-role">Agency Owner, Delhi</div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="section" style="padding-top:0">
+    <div class="section-header">
+      <div class="eyebrow">FAQ</div>
+      <h2>Frequently Asked Questions</h2>
+    </div>
+    <div class="faq-list" id="faqList"></div>
+  </div>
+
+</div>
+
+<!-- ────────────── PAGE: TOOLS ────────────── -->
+<div id="page-tools" class="page">
+  <div class="section">
+    <div class="section-header">
+      <div class="eyebrow">Tools Marketplace</div>
+      <h2>100+ AI-Powered Tools</h2>
+      <p>Find the perfect tool for your business. New tools added weekly.</p>
+    </div>
+    <div style="display:flex;gap:16px;margin-bottom:24px;flex-wrap:wrap;align-items:center">
+      <div style="flex:1;min-width:240px;position:relative">
+        <span style="position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--text3)">🔍</span>
+        <input type="text" id="toolSearch" placeholder="Search tools..." style="padding-left:38px" oninput="filterTools()">
+      </div>
+      <select id="toolSort" onchange="filterTools()" style="width:auto">
+        <option>Sort: Popular</option>
+        <option>Sort: Newest</option>
+        <option>Sort: Rating</option>
+        <option>Sort: Free First</option>
+      </select>
+    </div>
+    <div class="tools-filter" id="toolsFilter">
+      <button class="filter-btn active" onclick="setFilter('all',this)">All Tools</button>
+      <button class="filter-btn" onclick="setFilter('content',this)">Content</button>
+      <button class="filter-btn" onclick="setFilter('finance',this)">Finance & GST</button>
+      <button class="filter-btn" onclick="setFilter('social',this)">Social Media</button>
+      <button class="filter-btn" onclick="setFilter('design',this)">Design</button>
+      <button class="filter-btn" onclick="setFilter('seo',this)">SEO</button>
+      <button class="filter-btn" onclick="setFilter('hr',this)">HR & Legal</button>
+      <button class="filter-btn" onclick="setFilter('ecom',this)">E-Commerce</button>
+      <button class="filter-btn" onclick="setFilter('dev',this)">Developer</button>
+    </div>
+    <div class="tools-grid" id="toolsGrid"></div>
+
+    <!-- TOOL SUBMISSION PROMO -->
+    <div style="margin-top:56px;text-align:center;background:var(--surface);border:1px dashed var(--border2);border-radius:var(--r2);padding:40px">
+      <div style="font-size:40px;margin-bottom:16px">🛠️</div>
+      <h3 style="font-size:22px;margin-bottom:8px;font-family:var(--display)">Have an AI Tool to List?</h3>
+      <p style="color:var(--text2);margin-bottom:20px;font-size:15px">Submit your tool and reach 50,000+ Indian business users. Sponsored listings from ₹999/month.</p>
+      <button class="btn btn-primary" onclick="showPage('submit')">Submit Your Tool →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ────────────── PAGE: PRICING ────────────── -->
+<div id="page-pricing" class="page">
+  <div class="section">
+    <div class="section-header">
+      <div class="eyebrow">Pricing Plans</div>
+      <h2>Simple, Transparent Pricing</h2>
+      <p>Start free. Upgrade when you need more. Cancel anytime.</p>
+    </div>
+
+    <!-- BILLING TOGGLE -->
+    <div style="display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:48px">
+      <span style="font-size:15px;font-weight:600" id="billLabel">Monthly Billing</span>
+      <label class="int-toggle" style="margin:0">
+        <input type="checkbox" id="annualToggle" onchange="toggleBilling()">
+        <span class="int-slider"></span>
+      </label>
+      <span style="font-size:15px;font-weight:600">Annual <span style="background:rgba(34,197,94,.15);color:var(--green);font-size:12px;padding:2px 10px;border-radius:100px;font-weight:700">Save 40%</span></span>
+    </div>
+
+    <div class="pricing-grid">
+      <!-- FREE -->
+      <div class="price-card">
+        <div class="plan-name">Free Starter</div>
+        <div class="plan-price"><span class="currency">₹</span><span class="amount">0</span><span class="period">/mo</span></div>
+        <p class="plan-desc">Perfect for individuals testing AI tools</p>
+        <ul class="plan-features">
+          <li>5 AI tools access</li>
+          <li>100 credits/month</li>
+          <li>Basic templates</li>
+          <li>Email support</li>
+          <li class="no">Priority processing</li>
+          <li class="no">API access</li>
+          <li class="no">White-label</li>
+          <li class="no">Team seats</li>
+        </ul>
+        <button class="btn btn-ghost" style="width:100%" onclick="openModal('register')">Start Free →</button>
+      </div>
+      <!-- PRO -->
+      <div class="price-card popular">
+        <div class="popular-badge">🔥 Most Popular</div>
+        <div class="plan-name">Pro</div>
+        <div class="plan-price"><span class="currency">₹</span><span class="amount" id="proPrice">499</span><span class="period">/mo</span></div>
+        <p class="plan-desc">For freelancers & growing businesses</p>
+        <ul class="plan-features">
+          <li>50+ AI tools access</li>
+          <li>5,000 credits/month</li>
+          <li>All templates</li>
+          <li>Priority support</li>
+          <li>Fast processing</li>
+          <li>Basic API access</li>
+          <li class="no">White-label</li>
+          <li class="no">Team seats</li>
+        </ul>
+        <button class="btn btn-primary" style="width:100%" onclick="startCheckout('pro')">Start Pro Plan →</button>
+      </div>
+      <!-- AGENCY -->
+      <div class="price-card">
+        <div class="plan-name">Agency</div>
+        <div class="plan-price"><span class="currency">₹</span><span class="amount" id="agencyPrice">1499</span><span class="period">/mo</span></div>
+        <p class="plan-desc">For agencies & teams scaling fast</p>
+        <ul class="plan-features">
+          <li>100+ ALL tools access</li>
+          <li>Unlimited credits</li>
+          <li>White-label tools</li>
+          <li>Dedicated support</li>
+          <li>Priority processing</li>
+          <li>Full API access</li>
+          <li>5 team seats</li>
+          <li>Custom branding</li>
+        </ul>
+        <button class="btn btn-ghost" style="width:100%" onclick="startCheckout('agency')">Get Agency Plan →</button>
+      </div>
+      <!-- LIFETIME -->
+      <div class="price-card" style="border-color:rgba(245,158,11,.3);background:rgba(245,158,11,.04)">
+        <div class="popular-badge" style="background:linear-gradient(90deg,#f59e0b,#ef4444)">⚡ Lifetime Deal</div>
+        <div class="plan-name">Lifetime Pro</div>
+        <div class="plan-price"><span class="currency">₹</span><span class="amount">9,999</span><span class="period"> once</span></div>
+        <p class="plan-desc">Pay once, use forever. Limited time offer!</p>
+        <ul class="plan-features">
+          <li>Everything in Pro</li>
+          <li>Lifetime updates</li>
+          <li>20,000 credits/mo</li>
+          <li>Priority support</li>
+          <li>Early access features</li>
+          <li>50 exports/day</li>
+          <li class="no">White-label</li>
+          <li class="no">Team seats</li>
+        </ul>
+        <button class="btn" style="width:100%;background:linear-gradient(135deg,#f59e0b,#ef4444);color:#fff;font-weight:700;padding:12px" onclick="startCheckout('lifetime')">Grab Lifetime Deal →</button>
+        <p style="font-size:12px;color:var(--text3);text-align:center;margin-top:12px">⏰ Only 47 slots remaining</p>
+      </div>
+    </div>
+
+    <!-- PAYMENT METHODS -->
+    <div style="margin-top:56px;text-align:center">
+      <p style="font-size:14px;color:var(--text3);margin-bottom:16px;font-weight:600;text-transform:uppercase;letter-spacing:1px">Accepted Payment Methods</p>
+      <div class="payment-methods" style="justify-content:center">
+        <div class="pay-badge"><span class="pay-icon">🏦</span> UPI / GPay</div>
+        <div class="pay-badge"><span class="pay-icon">💳</span> Razorpay</div>
+        <div class="pay-badge"><span class="pay-icon">🌐</span> Stripe</div>
+        <div class="pay-badge"><span class="pay-icon">🏪</span> Net Banking</div>
+        <div class="pay-badge"><span class="pay-icon">📱</span> PhonePe</div>
+        <div class="pay-badge"><span class="pay-icon">💚</span> Paytm</div>
+        <div class="pay-badge"><span class="pay-icon">💜</span> EMI</div>
+      </div>
+      <p style="font-size:12px;color:var(--text3);margin-top:12px">🔒 256-bit SSL encryption. PCI DSS compliant. 100% secure.</p>
+    </div>
+
+    <!-- COMPARE TABLE -->
+    <div style="margin-top:64px">
+      <h3 style="text-align:center;font-size:26px;font-weight:800;margin-bottom:32px;font-family:var(--display)">Feature Comparison</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th style="text-align:center">Free</th>
+              <th style="text-align:center;color:var(--accent)">Pro ⭐</th>
+              <th style="text-align:center">Agency</th>
+              <th style="text-align:center">Lifetime</th>
+            </tr>
+          </thead>
+          <tbody id="compareTable"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ────────────── PAGE: AFFILIATE ────────────── -->
+<div id="page-affiliate" class="page">
+  <div class="section">
+    <div class="section-header">
+      <div class="eyebrow">Affiliate Program</div>
+      <h2>Earn 40% Recurring Commission</h2>
+      <p>Join 2,000+ Indian affiliates earning passive income. Get paid every month.</p>
+    </div>
+
+    <!-- AFFILIATE STATS -->
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:56px">
+      <div class="kpi"><div class="kpi-label">Commission Rate</div><div class="kpi-value" style="color:var(--green)">40%</div><div class="kpi-change up">↑ Recurring</div></div>
+      <div class="kpi"><div class="kpi-label">Cookie Duration</div><div class="kpi-value">90 Days</div><div class="kpi-change up">↑ Industry best</div></div>
+      <div class="kpi"><div class="kpi-label">Avg Earning/mo</div><div class="kpi-value">₹18K</div><div class="kpi-change up">↑ Top affiliates</div></div>
+      <div class="kpi"><div class="kpi-label">Payout Via</div><div class="kpi-value" style="font-size:18px">UPI/Bank</div><div class="kpi-change up">Monthly payouts</div></div>
+    </div>
+
+    <!-- HOW IT WORKS -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:56px">
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--r2);padding:32px;text-align:center">
+        <div style="font-size:40px;margin-bottom:16px">🔗</div>
+        <h3 style="font-size:18px;margin-bottom:10px;font-family:var(--display)">1. Get Your Link</h3>
+        <p style="color:var(--text2);font-size:14px">Sign up free and get your unique affiliate tracking link instantly.</p>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--r2);padding:32px;text-align:center">
+        <div style="font-size:40px;margin-bottom:16px">📣</div>
+        <h3 style="font-size:18px;margin-bottom:10px;font-family:var(--display)">2. Share & Promote</h3>
+        <p style="color:var(--text2);font-size:14px">Share with your audience, clients, or social media followers.</p>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--r2);padding:32px;text-align:center">
+        <div style="font-size:40px;margin-bottom:16px">💰</div>
+        <h3 style="font-size:18px;margin-bottom:10px;font-family:var(--display)">3. Earn Every Month</h3>
+        <p style="color:var(--text2);font-size:14px">Earn 40% recurring for every subscriber you bring in. Forever.</p>
+      </div>
+    </div>
+
+    <!-- AFFILIATE MARKETPLACE -->
+    <div class="section-header" style="margin-bottom:32px">
+      <h2 style="font-size:28px">Partner Tools Marketplace</h2>
+      <p>Also promote these partner tools and earn extra commissions</p>
+    </div>
+    <div class="affiliate-grid" id="affiliateGrid"></div>
+
+    <!-- AFFILIATE SIGN UP -->
+    <div style="margin-top:56px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r2);padding:40px;max-width:600px;margin-left:auto;margin-right:auto">
+      <h3 style="font-size:24px;font-weight:800;margin-bottom:8px;font-family:var(--display)">Join Affiliate Program</h3>
+      <p style="color:var(--text2);font-size:14px;margin-bottom:28px">Get approved in 24 hours. Start earning immediately.</p>
+      <div class="form-group"><label>Full Name</label><input type="text" placeholder="Your full name"></div>
+      <div class="form-group"><label>Email</label><input type="email" placeholder="your@email.com"></div>
+      <div class="form-group"><label>Website / Social Profile</label><input type="url" placeholder="https://..."></div>
+      <div class="form-group"><label>How will you promote?</label><select><option>Social Media</option><option>YouTube Channel</option><option>Blog / Website</option><option>Email List</option><option>WhatsApp Groups</option><option>Other</option></select></div>
+      <button class="btn btn-primary" style="width:100%;justify-content:center;margin-top:8px" onclick="showToast('Application submitted! We will review within 24 hours.','success')">Apply to Affiliate Program →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ────────────── PAGE: BLOG ────────────── -->
+<div id="page-blog" class="page">
+  <div class="section">
+    <div class="section-header">
+      <div class="eyebrow">SEO Blog</div>
+      <h2>Resources & Insights</h2>
+      <p>Tips, guides and strategies for Indian businesses using AI</p>
+    </div>
+    <div class="blog-grid" id="blogGrid"></div>
+  </div>
+</div>
+
+<!-- ────────────── PAGE: CONTACT ────────────── -->
+<div id="page-contact" class="page">
+  <div class="section">
+    <div class="section-header">
+      <div class="eyebrow">Contact</div>
+      <h2>Get in Touch</h2>
+      <p>We respond within 4 hours on business days</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>Let's Talk Business 🤝</h3>
+        <p>Whether you need tool recommendations, enterprise pricing, partnership opportunities, or just have a question — we're here to help.</p>
+        <div class="contact-method">
+          <div class="contact-icon">📧</div>
+          <div><div class="contact-label">Email</div><div class="contact-value">hello@aitoolshub.in</div></div>
+        </div>
+        <div class="contact-method">
+          <div class="contact-icon">📞</div>
+          <div><div class="contact-label">Phone / WhatsApp</div><div class="contact-value">+91 98765 43210</div></div>
+        </div>
+        <div class="contact-method">
+          <div class="contact-icon">📍</div>
+          <div><div class="contact-label">Address</div><div class="contact-value">Raipur, Chhattisgarh, India</div></div>
+        </div>
+        <div class="contact-method">
+          <div class="contact-icon">⏰</div>
+          <div><div class="contact-label">Support Hours</div><div class="contact-value">Mon–Sat, 9am–7pm IST</div></div>
+        </div>
+        <div style="margin-top:32px">
+          <p style="font-size:13px;color:var(--text3);margin-bottom:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px">Follow Us</p>
+          <div style="display:flex;gap:10px">
+            <div class="soc-icon" style="cursor:pointer">🐦</div>
+            <div class="soc-icon" style="cursor:pointer">📸</div>
+            <div class="soc-icon" style="cursor:pointer">💼</div>
+            <div class="soc-icon" style="cursor:pointer">▶️</div>
+            <div class="soc-icon" style="cursor:pointer">💬</div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form">
+        <h3>Send us a Message</h3>
+        <div class="form-row">
+          <div class="form-group"><label>First Name</label><input type="text" placeholder="Priya"></div>
+          <div class="form-group"><label>Last Name</label><input type="text" placeholder="Sharma"></div>
+        </div>
+        <div class="form-group"><label>Email Address</label><input type="email" placeholder="priya@example.com"></div>
+        <div class="form-group"><label>Phone (optional)</label><input type="tel" placeholder="+91 00000 00000"></div>
+        <div class="form-group"><label>Subject</label>
+          <select><option>General Inquiry</option><option>Enterprise / Agency Pricing</option><option>Partnership</option><option>Technical Support</option><option>Billing Issue</option><option>Tool Submission</option></select>
+        </div>
+        <div class="form-group"><label>Message</label><textarea rows="4" placeholder="Tell us how we can help..."></textarea></div>
+        <button class="btn btn-primary" style="width:100%;justify-content:center" onclick="showToast('Message sent! We will reply within 4 hours.','success')">Send Message →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ────────────── PAGE: DASHBOARD ────────────── -->
+<div id="page-dashboard" class="page">
+  <div class="dash-layout">
+    <div class="dash-sidebar">
+      <div class="sidebar-section">
+        <div style="padding:0 24px 20px;border-bottom:1px solid var(--border);margin-bottom:16px">
+          <div style="display:flex;align-items:center;gap:10px">
+            <div style="width:36px;height:36px;border-radius:50%;background:rgba(124,92,252,.2);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:var(--accent3)">AK</div>
+            <div><div style="font-size:14px;font-weight:700">Amit Kumar</div><div style="font-size:12px;color:var(--text3)">Pro Plan</div></div>
+          </div>
+        </div>
+        <div class="sidebar-label">Main</div>
+        <div class="sidebar-item active" onclick="switchDashTab('overview',this)"><span class="icon">📊</span> Overview</div>
+        <div class="sidebar-item" onclick="switchDashTab('tools',this)"><span class="icon">🛠</span> My Tools <span class="badge-count">12</span></div>
+        <div class="sidebar-item" onclick="switchDashTab('analytics',this)"><span class="icon">📈</span> Analytics</div>
+        <div class="sidebar-item" onclick="switchDashTab('billing',this)"><span class="icon">💳</span> Billing</div>
+        <div class="sidebar-item" onclick="switchDashTab('crm',this)"><span class="icon">🤝</span> CRM</div>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-label">Account</div>
+        <div class="sidebar-item" onclick="switchDashTab('profile',this)"><span class="icon">👤</span> Profile</div>
+        <div class="sidebar-item" onclick="switchDashTab('api',this)"><span class="icon">🔑</span> API Keys</div>
+        <div class="sidebar-item" onclick="switchDashTab('affiliate',this)"><span class="icon">💰</span> Earnings</div>
+        <div class="sidebar-item" onclick="switchPage('home')"><span class="icon">🚪</span> Logout</div>
+      </div>
+    </div>
+    <div class="dash-main" id="dashMain"></div>
+  </div>
+</div>
+
+<!-- ────────────── PAGE: ADMIN ────────────── -->
+<div id="page-admin" class="page">
+  <div style="padding:32px;background:var(--bg);min-height:calc(100vh - 64px)">
+    <div style="max-width:1200px;margin:0 auto">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:28px;flex-wrap:wrap;gap:12px">
+        <div>
+          <h1 style="font-size:26px;font-weight:800;font-family:var(--display)">Admin Panel</h1>
+          <p style="color:var(--text2);font-size:14px;margin-top:4px">AIToolsHub Control Center</p>
+        </div>
+        <div style="display:flex;gap:10px">
+          <button class="btn btn-ghost" onclick="showPage('home')">← Back to Site</button>
+          <button class="btn btn-primary" onclick="showToast('Settings saved!','success')">Save Settings</button>
+        </div>
+      </div>
+      <div class="admin-tabs">
+        <button class="admin-tab active" onclick="switchAdminTab('users',this)">Users</button>
+        <button class="admin-tab" onclick="switchAdminTab('tools',this)">Tools</button>
+        <button class="admin-tab" onclick="switchAdminTab('revenue',this)">Revenue</button>
+        <button class="admin-tab" onclick="switchAdminTab('leads',this)">Leads</button>
+        <button class="admin-tab" onclick="switchAdminTab('affiliates',this)">Affiliates</button>
+        <button class="admin-tab" onclick="switchAdminTab('seo',this)">SEO</button>
+        <button class="admin-tab" onclick="switchAdminTab('settings',this)">Settings</button>
+      </div>
+      <div id="adminContent"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ────────────── PAGE: SUBMIT TOOL ────────────── -->
+<div id="page-submit" class="page">
+  <div class="section">
+    <div class="section-header">
+      <div class="eyebrow">Submit Tool</div>
+      <h2>List Your AI Tool</h2>
+      <p>Reach 50,000+ Indian business users. Listings start at ₹999/month.</p>
+    </div>
+    <div class="submit-form">
+      <h2>Tool Submission Form</h2>
+      <p class="sub">Fill in the details below. We review submissions within 48 hours.</p>
+      <div class="form-group"><label>Tool Name *</label><input type="text" placeholder="e.g. MyAI Content Writer"></div>
+      <div class="form-group"><label>Tool URL *</label><input type="url" placeholder="https://mytool.com"></div>
+      <div class="form-group"><label>Category *</label>
+        <select><option>Content Writing</option><option>Design</option><option>SEO</option><option>Finance & GST</option><option>Social Media</option><option>HR & Legal</option><option>E-Commerce</option><option>Developer Tools</option><option>Other</option></select>
+      </div>
+      <div class="form-group"><label>Short Description (max 150 chars) *</label><input type="text" placeholder="What does your tool do?"></div>
+      <div class="form-group"><label>Long Description *</label><textarea rows="5" placeholder="Tell us more about features, who it's for, and what makes it unique..."></textarea></div>
+      <div class="form-row">
+        <div class="form-group"><label>Pricing Model</label><select><option>Free</option><option>Freemium</option><option>Paid</option><option>Lifetime Deal</option></select></div>
+        <div class="form-group"><label>Starting Price (₹/mo)</label><input type="number" placeholder="0"></div>
+      </div>
+      <div class="form-group"><label>Logo URL</label><input type="url" placeholder="https://...logo.png"></div>
+      <div class="form-group"><label>Listing Type *</label>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:8px" id="listingTypes">
+          <div class="listing-opt active" onclick="selectListing(this,'free')" style="background:var(--surface2);border:2px solid var(--accent);border-radius:var(--r);padding:16px;text-align:center;cursor:pointer">
+            <div style="font-size:20px;margin-bottom:8px">📦</div><div style="font-weight:700;font-size:14px">Free</div><div style="font-size:12px;color:var(--text3)">₹0/mo</div>
+          </div>
+          <div class="listing-opt" onclick="selectListing(this,'sponsored')" style="background:var(--surface);border:1px solid var(--border2);border-radius:var(--r);padding:16px;text-align:center;cursor:pointer">
+            <div style="font-size:20px;margin-bottom:8px">⭐</div><div style="font-weight:700;font-size:14px">Sponsored</div><div style="font-size:12px;color:var(--text3)">₹999/mo</div>
+          </div>
+          <div class="listing-opt" onclick="selectListing(this,'featured')" style="background:var(--surface);border:1px solid var(--border2);border-radius:var(--r);padding:16px;text-align:center;cursor:pointer">
+            <div style="font-size:20px;margin-bottom:8px">🔥</div><div style="font-weight:700;font-size:14px">Featured</div><div style="font-size:12px;color:var(--text3)">₹2,999/mo</div>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Your Name *</label><input type="text" placeholder="Full name"></div>
+        <div class="form-group"><label>Your Email *</label><input type="email" placeholder="your@email.com"></div>
+      </div>
+      <div style="display:flex;gap:12px;margin-top:8px">
+        <button class="btn btn-ghost" style="flex:1;justify-content:center" onclick="showPage('tools')">Cancel</button>
+        <button class="btn btn-primary" style="flex:2;justify-content:center" onclick="showToast('Tool submitted for review! We will contact you within 48 hours.','success')">Submit Tool for Review →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── AUTH MODAL ── -->
+<div class="modal-overlay" id="authModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="tab-switcher">
+      <button id="loginTabBtn" onclick="switchAuthTab('login')" class="active">Login</button>
+      <button id="registerTabBtn" onclick="switchAuthTab('register')">Sign Up</button>
+    </div>
+    <!-- LOGIN -->
+    <div id="loginTab">
+      <h2>Welcome Back 👋</h2>
+      <p class="modal-sub">Sign in to your AIToolsHub account</p>
+      <div class="form-group"><label>Email</label><input type="email" placeholder="your@email.com"></div>
+      <div class="form-group"><label>Password</label><input type="password" placeholder="••••••••"></div>
+      <div style="display:flex;justify-content:flex-end;margin:-8px 0 18px"><span style="font-size:13px;color:var(--accent);cursor:pointer">Forgot password?</span></div>
+      <button class="btn btn-primary" style="width:100%;justify-content:center;padding:13px" onclick="doLogin()">Sign In →</button>
+      <div class="divider">or continue with</div>
+      <div style="display:flex;gap:10px">
+        <button class="social-btn" onclick="showToast('Google login coming soon','success')">🇬 Google</button>
+        <button class="social-btn" onclick="showToast('LinkedIn login coming soon','success')">🔵 LinkedIn</button>
+      </div>
+    </div>
+    <!-- REGISTER -->
+    <div id="registerTab" class="hidden">
+      <h2>Create Account 🚀</h2>
+      <p class="modal-sub">Start free. No credit card needed.</p>
+      <div class="form-row">
+        <div class="form-group"><label>First Name</label><input type="text" placeholder="Priya"></div>
+        <div class="form-group"><label>Last Name</label><input type="text" placeholder="Sharma"></div>
+      </div>
+      <div class="form-group"><label>Email</label><input type="email" placeholder="your@email.com"></div>
+      <div class="form-group"><label>Password</label><input type="password" placeholder="Min 8 characters"></div>
+      <div class="form-group"><label>I am a...</label>
+        <select><option>Freelancer</option><option>Agency Owner</option><option>Student</option><option>Content Creator</option><option>MSME Owner</option><option>CA / Accountant</option><option>Digital Marketer</option><option>Startup Founder</option></select>
+      </div>
+      <button class="btn btn-primary" style="width:100%;justify-content:center;padding:13px;margin-top:4px" onclick="doRegister()">Create Free Account →</button>
+      <p style="font-size:12px;color:var(--text3);text-align:center;margin-top:14px">By signing up you agree to our <span style="color:var(--accent);cursor:pointer">Terms</span> & <span style="color:var(--accent);cursor:pointer">Privacy Policy</span></p>
+    </div>
+  </div>
+</div>
+
+<!-- CHECKOUT MODAL -->
+<div class="modal-overlay" id="checkoutModal">
+  <div class="modal" style="max-width:520px">
+    <button class="modal-close" onclick="document.getElementById('checkoutModal').classList.remove('open')">✕</button>
+    <h2>Complete Your Order 🔐</h2>
+    <div id="checkoutSummary" style="background:var(--surface);border-radius:var(--r);padding:16px;margin:16px 0 24px"></div>
+    <div class="form-group"><label>Email</label><input type="email" placeholder="your@email.com" id="checkoutEmail"></div>
+    <div class="form-group"><label>Payment Method</label>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:8px">
+        <div onclick="selectPayMethod(this)" style="border:2px solid var(--accent);border-radius:8px;padding:12px;text-align:center;cursor:pointer;font-size:13px;font-weight:600">💳<br>Card</div>
+        <div onclick="selectPayMethod(this)" style="border:1px solid var(--border2);border-radius:8px;padding:12px;text-align:center;cursor:pointer;font-size:13px;font-weight:600">📱<br>UPI</div>
+        <div onclick="selectPayMethod(this)" style="border:1px solid var(--border2);border-radius:8px;padding:12px;text-align:center;cursor:pointer;font-size:13px;font-weight:600">🏦<br>Net Banking</div>
+      </div>
+    </div>
+    <button class="btn btn-primary" style="width:100%;justify-content:center;padding:14px;margin-top:8px" onclick="processPayment()">Pay Securely via Razorpay →</button>
+    <p style="font-size:12px;color:var(--text3);text-align:center;margin-top:12px">🔒 Secured by Razorpay · Stripe · 256-bit SSL</p>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo" style="font-size:20px">AI<span>Tools</span>Hub</div>
+        <p>India's fastest-growing AI tools marketplace. Empowering 50,000+ businesses with smart automation.</p>
+        <div style="display:flex;gap:8px;margin-top:16px">
+          <span class="chip">🇮🇳 Made in India</span>
+          <span class="chip">🔒 GDPR Safe</span>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Products</h4>
+        <a href="#" onclick="showPage('tools');return false">AI Tools</a>
+        <a href="#" onclick="showPage('pricing');return false">Pricing</a>
+        <a href="#" onclick="showPage('affiliate');return false">Affiliate</a>
+        <a href="#" onclick="showPage('submit');return false">Submit Tool</a>
+        <a href="#" onclick="showPage('blog');return false">Blog</a>
+      </div>
+      <div class="footer-col">
+        <h4>Account</h4>
+        <a href="#" onclick="openModal('login');return false">Login</a>
+        <a href="#" onclick="openModal('register');return false">Sign Up</a>
+        <a href="#" onclick="showPage('dashboard');return false">Dashboard</a>
+        <a href="#" onclick="showPage('admin');return false">Admin Panel</a>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <a href="#" onclick="showPage('contact');return false">Contact</a>
+        <a href="#">Help Center</a>
+        <a href="#">API Docs</a>
+        <a href="#">Status Page</a>
+        <a href="#">WhatsApp</a>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Cookie Policy</a>
+        <a href="#">Refund Policy</a>
+        <a href="#">GDPR</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 AIToolsHub · CIN: U72900CG2025PTC012345 · GST: 22AAAAA0000A1Z5</span>
+      <div class="footer-soc">
+        <div class="soc-icon">🐦</div>
+        <div class="soc-icon">📸</div>
+        <div class="soc-icon">💼</div>
+        <div class="soc-icon">▶️</div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── DATA ──
+const TOOLS_DATA = [
+  {id:1,name:'AI Content Writer',desc:'Write blogs, ads & emails in Hindi/English. 10x faster.',cat:'content',badge:'pro',rating:4.9,reviews:2340,icon:'✍️',color:'rgba(124,92,252,.15)'},
+  {id:2,name:'GST Invoice Generator',desc:'GST-compliant invoices in seconds. PDF export included.',cat:'finance',badge:'free',rating:4.8,reviews:5120,icon:'📄',color:'rgba(34,197,94,.12)'},
+  {id:3,name:'AI Image Creator',desc:'Generate stunning images for products & marketing.',cat:'design',badge:'pro',rating:4.7,reviews:1840,icon:'🎨',color:'rgba(6,182,212,.12)'},
+  {id:4,name:'Social Media Scheduler',desc:'Schedule across 6 platforms. Auto-post at best times.',cat:'social',badge:'new',rating:4.9,reviews:890,icon:'📱',color:'rgba(245,158,11,.12)'},
+  {id:5,name:'SEO Keyword Finder',desc:'Find low-competition keywords for Indian searches.',cat:'seo',badge:'free',rating:4.6,reviews:3200,icon:'🔍',color:'rgba(124,92,252,.15)'},
+  {id:6,name:'Freelance Rate Calc',desc:'Calculate ideal INR rate for any project type.',cat:'content',badge:'free',rating:4.8,reviews:3450,icon:'💰',color:'rgba(34,197,94,.12)'},
+  {id:7,name:'TDS Calculator',desc:'Compute TDS instantly for salary, rent & contractor payments.',cat:'finance',badge:'free',rating:4.7,reviews:4100,icon:'🧮',color:'rgba(34,197,94,.12)'},
+  {id:8,name:'AI Logo Maker',desc:'Professional logos generated in 30 seconds. 100+ styles.',cat:'design',badge:'pro',rating:4.5,reviews:2200,icon:'🏷️',color:'rgba(236,72,153,.12)'},
+  {id:9,name:'Email Sequence Writer',desc:'AI-powered drip sequences that convert readers to buyers.',cat:'content',badge:'pro',rating:4.6,reviews:1200,icon:'📧',color:'rgba(124,92,252,.15)'},
+  {id:10,name:'GSTR-3B Filer',desc:'Prepare & file GSTR-3B automatically. Zero errors.',cat:'finance',badge:'pro',rating:4.9,reviews:2800,icon:'📊',color:'rgba(34,197,94,.12)'},
+  {id:11,name:'Hashtag Generator',desc:'AI hashtags for Instagram & Twitter. Boost reach 5x.',cat:'social',badge:'free',rating:4.5,reviews:6700,icon:'#️⃣',color:'rgba(245,158,11,.12)'},
+  {id:12,name:'Code Reviewer AI',desc:'Review code for bugs, security & performance issues.',cat:'dev',badge:'pro',rating:4.8,reviews:980,icon:'💻',color:'rgba(6,182,212,.12)'},
+  {id:13,name:'Job Description Writer',desc:'Write JDs that attract top talent. ATS-optimized.',cat:'hr',badge:'free',rating:4.6,reviews:1500,icon:'👔',color:'rgba(124,92,252,.15)'},
+  {id:14,name:'Product Description AI',desc:'Sell more with AI product descriptions for Amazon & Flipkart.',cat:'ecom',badge:'pro',rating:4.7,reviews:2100,icon:'🛍️',color:'rgba(236,72,153,.12)'},
+  {id:15,name:'Backlink Checker',desc:'Analyze your backlink profile. Find link building opportunities.',cat:'seo',badge:'free',rating:4.4,reviews:2900,icon:'🔗',color:'rgba(124,92,252,.15)'},
+  {id:16,name:'NDA Generator',desc:'Auto-generate NDAs & contracts for Indian law compliance.',cat:'hr',badge:'pro',rating:4.7,reviews:1100,icon:'📜',color:'rgba(245,158,11,.12)'},
+];
+
+const BLOG_DATA = [
+  {emoji:'🤖',tag:'AI Strategy',title:'10 AI Tools Every Indian Freelancer Must Use in 2025',desc:'From content writing to billing — these tools will save you 20+ hours every week.',date:'Dec 15, 2024',readTime:'8 min',color:'#7c5cfc'},
+  {emoji:'💰',tag:'GST & Taxes',title:'Complete Guide: GST for Freelancers & Small Businesses India',desc:'Everything you need to know about GST registration, filing, and compliance — made simple.',date:'Dec 10, 2024',readTime:'12 min',color:'#22c55e'},
+  {emoji:'📈',tag:'Growth',title:'How Indian Agencies Are Scaling to ₹10L/month with AI',desc:'Real stories from 5 Indian digital agencies that 10x\'d their revenue using AI tools.',date:'Dec 5, 2024',readTime:'10 min',color:'#06b6d4'},
+  {emoji:'🎯',tag:'Social Media',title:'AI-Powered Instagram Strategy for Indian Brands in 2025',desc:'Beat the algorithm with AI-generated content calendars, captions, and hashtag strategies.',date:'Nov 28, 2024',readTime:'7 min',color:'#ec4899'},
+  {emoji:'🛒',tag:'E-Commerce',title:'Meesho & Flipkart Sellers: AI Tools to 10x Your Sales',desc:'Product listings, pricing strategies, and customer messages — all on autopilot with AI.',date:'Nov 20, 2024',readTime:'9 min',color:'#f59e0b'},
+  {emoji:'💻',tag:'Freelancing',title:'Fiverr & Upwork Guide: Get Your First Client in 7 Days',desc:'Proven profile optimization, gig writing, and proposal strategies for Indian freelancers.',date:'Nov 15, 2024',readTime:'11 min',color:'#7c5cfc'},
+];
+
+const AFFILIATES = [
+  {emoji:'📝',name:'Jasper AI',desc:'Best content writing AI. ₹5,000–₹40,000/mo affiliate income.',comm:'30%'},
+  {emoji:'🎨',name:'Canva Pro',desc:'Design tool loved by creators. 30-day cookie window.',comm:'25%'},
+  {emoji:'🚀',name:'Semrush',desc:'Premium SEO suite. High ticket = high commissions.',comm:'$200/sale'},
+  {emoji:'📧',name:'ConvertKit',desc:'Email marketing for creators. Lifetime recurring.',comm:'30%'},
+  {emoji:'🏪',name:'Shopify India',desc:'E-commerce platform. ₹2,000 per qualified merchant.',comm:'₹2K/ref'},
+  {emoji:'🤖',name:'Claude API',desc:'AI API for developers. Usage-based recurring income.',comm:'20%'},
+  {emoji:'💼',name:'Zoho Books',desc:'Accounting for Indian MSMEs. Strong product, high LTV.',comm:'15%'},
+  {emoji:'📊',name:'Razorpay',desc:'Payment gateway for Indian businesses. Volume bonus.',comm:'₹500/ref'},
+];
+
+const FAQS = [
+  {q:'Is AIToolsHub free to use?',a:'Yes! We offer a free plan with access to 5 core tools and 100 credits per month. No credit card required to sign up. You can upgrade anytime to unlock more tools and credits.'},
+  {q:'What payment methods are accepted?',a:'We accept all major Indian payment methods including UPI (GPay, PhonePe, Paytm), Net Banking, Credit/Debit Cards, and EMI options. Payments are processed via Razorpay and Stripe — fully secure with 256-bit SSL.'},
+  {q:'Can I cancel my subscription anytime?',a:'Absolutely. You can cancel your subscription at any time from your dashboard. You retain access to your plan until the end of the current billing period. No cancellation fees.'},
+  {q:'Do you offer a free trial for paid plans?',a:'Yes! Pro and Agency plans come with a 7-day free trial. You can explore all features before committing. We only charge after the trial period ends.'},
+  {q:'Is there a lifetime deal available?',a:'Yes! Our Lifetime Pro deal lets you pay once (₹9,999) and use the platform forever including all future updates. Only limited slots are available — grab it before it\'s gone.'},
+  {q:'How does the affiliate program work?',a:'Sign up as an affiliate, get your unique referral link, share it with your audience, and earn 40% recurring commission for every paying subscriber you bring in. Payouts are done monthly via UPI or bank transfer.'},
+  {q:'Can I submit my own AI tool to the marketplace?',a:'Yes! Any developer or company can submit their AI tool for listing. Free listings are available. Sponsored and Featured listings provide extra visibility for a monthly fee. Click "Submit Tool" to get started.'},
+  {q:'Do you offer GST invoices for payments?',a:'Yes, all paid subscribers receive a GST-compliant invoice for their subscription payments. These can be downloaded from your Dashboard > Billing section.'},
+];
+
+const COMPARE_ROWS = [
+  ['Tools Access','5','50+','100+','50+'],
+  ['Monthly Credits','100','5,000','Unlimited','20,000'],
+  ['Priority Processing','✕','✓','✓','✓'],
+  ['API Access','✕','Basic','Full','Basic'],
+  ['White-Label','✕','✕','✓','✕'],
+  ['Team Seats','1','1','5','1'],
+  ['Priority Support','✕','✓','✓','✓'],
+  ['Custom Branding','✕','✕','✓','✕'],
+  ['Affiliate Commission','—','10%','20%','15%'],
+];
+
+// ── STATE ──
+let currentPage = 'home';
+let currentFilter = 'all';
+let isAnnual = false;
+let currentPlan = 'pro';
+
+// ── NAVIGATION ──
+function showPage(page) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page-' + page).classList.add('active');
+  document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+  currentPage = page;
+  window.scrollTo({top:0});
+
+  if (page === 'dashboard') renderDashboard('overview');
+  if (page === 'admin') renderAdmin('users');
+  if (page === 'tools') renderTools();
+  if (page === 'blog') renderBlog();
+  if (page === 'affiliate') renderAffiliates();
+  if (page === 'home') renderFAQs();
+  if (page === 'pricing') renderCompareTable();
+}
+
+function toggleMobileMenu() {
+  const m = document.getElementById('mobileMenu');
+  m.style.display = m.style.display === 'none' ? 'block' : 'none';
+}
+
+// ── AUTH ──
+function openModal(tab) {
+  document.getElementById('authModal').classList.add('open');
+  switchAuthTab(tab);
+}
+function closeModal() {
+  document.getElementById('authModal').classList.remove('open');
+}
+function switchAuthTab(tab) {
+  const isLogin = tab === 'login';
+  document.getElementById('loginTab').classList.toggle('hidden', !isLogin);
+  document.getElementById('registerTab').classList.toggle('hidden', isLogin);
+  document.getElementById('loginTabBtn').classList.toggle('active', isLogin);
+  document.getElementById('registerTabBtn').classList.toggle('active', !isLogin);
+}
+function doLogin() {
+  closeModal();
+  showToast('Welcome back! Redirecting to dashboard...', 'success');
+  setTimeout(() => showPage('dashboard'), 1200);
+}
+function doRegister() {
+  closeModal();
+  showToast('Account created! Welcome to AIToolsHub 🎉', 'success');
+  setTimeout(() => showPage('dashboard'), 1200);
+}
+
+// ── TOOLS ──
+function renderTools() {
+  const grid = document.getElementById('toolsGrid');
+  if (!grid) return;
+  const search = (document.getElementById('toolSearch') || {}).value || '';
+  let filtered = TOOLS_DATA.filter(t => {
+    const matchCat = currentFilter === 'all' || t.cat === currentFilter;
+    const matchSearch = !search || t.name.toLowerCase().includes(search.toLowerCase()) || t.desc.toLowerCase().includes(search.toLowerCase());
+    return matchCat && matchSearch;
+  });
+  grid.innerHTML = filtered.map(t => `
+    <div class="tool-card" onmousemove="trackMouse(event,this)" onclick="showToast('Opening ${t.name}...','success')">
+      <div class="tool-icon" style="background:${t.color}">${t.icon}</div>
+      <h3>${t.name}</h3>
+      <p>${t.desc}</p>
+      <div class="tool-meta">
+        <span class="tool-badge badge-${t.badge}">${t.badge.toUpperCase()}</span>
+        <span class="tool-rating"><span class="star">★</span> ${t.rating} (${(t.reviews/1000).toFixed(1)}k)</span>
+      </div>
+    </div>`).join('');
+}
+function trackMouse(e, el) {
+  const r = el.getBoundingClientRect();
+  el.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
+  el.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
+}
+function setFilter(cat, btn) {
+  currentFilter = cat;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderTools();
+}
+function filterTools() { renderTools(); }
+
+// ── BLOG ──
+function renderBlog() {
+  const g = document.getElementById('blogGrid');
+  if (!g) return;
+  g.innerHTML = BLOG_DATA.map(b => `
+    <div class="blog-card" onclick="showToast('Opening article...','success')">
+      <div class="blog-thumb" style="font-size:56px;background:${b.color}22">
+        <div class="blog-thumb-bg" style="background:${b.color}"></div>
+        ${b.emoji}
+      </div>
+      <div class="blog-body">
+        <div class="blog-tag">${b.tag}</div>
+        <h3>${b.title}</h3>
+        <p>${b.desc}</p>
+        <div class="blog-meta"><span>${b.date}</span><span>⏱ ${b.readTime} read</span></div>
+      </div>
+    </div>`).join('');
+}
+
+// ── AFFILIATES ──
+function renderAffiliates() {
+  const g = document.getElementById('affiliateGrid');
+  if (!g) return;
+  g.innerHTML = AFFILIATES.map(a => `
+    <div class="aff-card">
+      <div class="aff-logo">${a.emoji}</div>
+      <div class="aff-comm">${a.comm}</div>
+      <div class="aff-name">${a.name}</div>
+      <div class="aff-desc">${a.desc}</div>
+      <button class="btn btn-ghost" style="width:100%;justify-content:center;font-size:13px" onclick="showToast('Copying affiliate link...','success')">Get Affiliate Link →</button>
+    </div>`).join('');
+}
+
+// ── FAQs ──
+function renderFAQs() {
+  const l = document.getElementById('faqList');
+  if (!l) return;
+  l.innerHTML = FAQS.map((f, i) => `
+    <div class="faq-item" id="faq${i}">
+      <div class="faq-q" onclick="toggleFaq(${i})">
+        <span>${f.q}</span><div class="arrow">▼</div>
+      </div>
+      <div class="faq-a">${f.a}</div>
+    </div>`).join('');
+}
+function toggleFaq(i) {
+  const el = document.getElementById('faq' + i);
+  el.classList.toggle('open');
+}
+
+// ── PRICING ──
+function toggleBilling() {
+  isAnnual = document.getElementById('annualToggle').checked;
+  document.getElementById('billLabel').textContent = isAnnual ? 'Annual Billing' : 'Monthly Billing';
+  document.getElementById('proPrice').textContent = isAnnual ? '299' : '499';
+  document.getElementById('agencyPrice').textContent = isAnnual ? '899' : '1499';
+}
+function renderCompareTable() {
+  const t = document.getElementById('compareTable');
+  if (!t) return;
+  t.innerHTML = COMPARE_ROWS.map(r => `
+    <tr>
+      <td style="font-weight:600">${r[0]}</td>
+      <td style="text-align:center;color:var(--text3)">${r[1]}</td>
+      <td style="text-align:center;color:var(--accent3)">${r[2]}</td>
+      <td style="text-align:center;color:var(--text2)">${r[3]}</td>
+      <td style="text-align:center;color:var(--amber)">${r[4]}</td>
+    </tr>`).join('');
+}
+
+// ── CHECKOUT ──
+function startCheckout(plan) {
+  currentPlan = plan;
+  const prices = {free:'₹0/mo',pro: isAnnual ? '₹299/mo' : '₹499/mo',agency: isAnnual ? '₹899/mo' : '₹1,499/mo',lifetime:'₹9,999 (One-time)'};
+  document.getElementById('checkoutSummary').innerHTML = `
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <div>
+        <div style="font-size:14px;color:var(--text3)">Selected Plan</div>
+        <div style="font-weight:700;text-transform:capitalize;font-size:18px;margin-top:2px">${plan.charAt(0).toUpperCase()+plan.slice(1)} Plan</div>
+      </div>
+      <div style="font-family:var(--display);font-size:22px;font-weight:800;color:var(--accent)">${prices[plan]}</div>
+    </div>`;
+  document.getElementById('checkoutModal').classList.add('open');
+}
+function selectPayMethod(el) {
+  document.querySelectorAll('#checkoutModal [onclick]').forEach(e => {
+    if (e !== el && e.style.border) { e.style.border = '1px solid var(--border2)'; }
+  });
+  el.style.border = '2px solid var(--accent)';
+}
+function processPayment() {
+  showToast('Redirecting to Razorpay...', 'success');
+  document.getElementById('checkoutModal').classList.remove('open');
+  setTimeout(() => {
+    showToast('Payment successful! 🎉 Plan activated.', 'success');
+    setTimeout(() => showPage('dashboard'), 1500);
+  }, 2000);
+}
+
+// ── EMAIL CAPTURE ──
+function captureEmail() {
+  const v = document.getElementById('leadEmail').value;
+  if (!v || !v.includes('@')) { showToast('Please enter a valid email.', 'error'); return; }
+  showToast('🎉 You\'re in! Check your inbox for 5 free tools.', 'success');
+  document.getElementById('leadEmail').value = '';
+}
+
+// ── DASHBOARD ──
+function renderDashboard(tab) {
+  const m = document.getElementById('dashMain');
+  if (!m) return;
+  if (tab === 'overview') {
+    m.innerHTML = `
+      <div class="dash-header">
+        <div><div class="dash-title">Dashboard</div><div class="dash-sub">Welcome back, Amit 👋 Here's what's happening.</div></div>
+        <button class="btn btn-primary" onclick="showPage('tools')">+ Use New Tool</button>
+      </div>
+      <div class="kpi-grid">
+        <div class="kpi"><div class="kpi-label">Credits Used</div><div class="kpi-value">3,240</div><div class="kpi-change up">↑ 12% this week</div></div>
+        <div class="kpi"><div class="kpi-label">Tools Used</div><div class="kpi-value">7</div><div class="kpi-change up">↑ 3 new this month</div></div>
+        <div class="kpi"><div class="kpi-label">Affiliate Earned</div><div class="kpi-value" style="color:var(--green)">₹2,840</div><div class="kpi-change up">↑ ₹640 this week</div></div>
+        <div class="kpi"><div class="kpi-label">Credits Left</div><div class="kpi-value" style="color:var(--amber)">1,760</div><div class="kpi-change">of 5,000 total</div></div>
+      </div>
+      <div class="dash-grid">
+        <div class="dash-card">
+          <div class="dash-card-title">Usage This Month<button class="btn btn-ghost" style="font-size:12px;padding:4px 10px">Export</button></div>
+          <canvas id="usageChart" height="220"></canvas>
+        </div>
+        <div class="dash-card">
+          <div class="dash-card-title">Recent Activity</div>
+          <div class="recent-list">
+            ${[
+              ['AI','AI Content Writer','5 min ago','–50 credits'],
+              ['GS','GST Invoice #142','1 hr ago','–10 credits'],
+              ['SE','SEO Keyword Tool','3 hrs ago','–80 credits'],
+              ['IM','AI Image Creator','Yesterday','–120 credits'],
+            ].map(([av,name,time,val]) => `
+              <div class="recent-item">
+                <div class="recent-avatar">${av}</div>
+                <div class="recent-info"><div class="recent-name">${name}</div><div class="recent-detail">${time}</div></div>
+                <div class="recent-amount">${val}</div>
+              </div>`).join('')}
+          </div>
+        </div>
+      </div>
+      <div class="dash-card" style="margin-bottom:20px">
+        <div class="dash-card-title">Plan Details</div>
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px">
+          <div>
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px">
+              <span style="background:rgba(124,92,252,.15);color:var(--accent3);font-size:12px;font-weight:700;padding:3px 10px;border-radius:100px">PRO PLAN</span>
+              <span style="font-size:13px;color:var(--text3)">Renews Jan 15, 2025</span>
+            </div>
+            <div style="font-size:14px;color:var(--text2)">₹499/month · 5,000 credits · 50+ tools</div>
+          </div>
+          <div style="display:flex;gap:10px">
+            <button class="btn btn-ghost" onclick="showPage('pricing')">Change Plan</button>
+            <button class="btn btn-primary" onclick="showToast('Downloading invoice...','success')">Download Invoice</button>
+          </div>
+        </div>
+      </div>`;
+    setTimeout(renderUsageChart, 100);
+  } else if (tab === 'analytics') {
+    m.innerHTML = `
+      <div class="dash-header"><div><div class="dash-title">Analytics</div><div class="dash-sub">Your tool usage and performance data</div></div></div>
+      <div class="analytics-grid">
+        <div class="kpi"><div class="kpi-label">Total Usage</div><div class="kpi-value">3,240</div></div>
+        <div class="kpi"><div class="kpi-label">Avg Daily Use</div><div class="kpi-value">108</div></div>
+        <div class="kpi"><div class="kpi-label">Top Tool</div><div class="kpi-value" style="font-size:18px">Content AI</div></div>
+        <div class="kpi"><div class="kpi-label">Saved Hours</div><div class="kpi-value" style="color:var(--green)">42h</div></div>
+      </div>
+      <div class="dash-grid">
+        <div class="dash-card">
+          <div class="dash-card-title">Credits Usage Over Time</div>
+          <canvas id="analyticsChart" height="240"></canvas>
+        </div>
+        <div class="dash-card">
+          <div class="dash-card-title">Top Tools Used</div>
+          ${[
+            ['AI Content Writer','68%'],['GST Invoice','52%'],['SEO Keywords','41%'],
+            ['AI Image Creator','33%'],['Social Scheduler','28%'],['TDS Calculator','19%'],
+          ].map(([n,v]) => `
+            <div class="analytics-bar">
+              <div class="bar-label">${n}</div>
+              <div class="bar-track"><div class="bar-fill" style="width:${v}"></div></div>
+              <div class="bar-val">${v}</div>
+            </div>`).join('')}
+        </div>
+      </div>`;
+    setTimeout(renderAnalyticsChart, 100);
+  } else if (tab === 'billing') {
+    m.innerHTML = `
+      <div class="dash-header"><div><div class="dash-title">Billing & Payments</div><div class="dash-sub">Manage your subscription and payment history</div></div></div>
+      <div class="dash-card" style="margin-bottom:20px">
+        <div class="dash-card-title">Current Plan</div>
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px">
+          <div>
+            <span style="background:rgba(124,92,252,.15);color:var(--accent3);font-size:13px;font-weight:700;padding:4px 14px;border-radius:100px">PRO PLAN</span>
+            <div style="font-size:22px;font-weight:800;margin-top:10px;font-family:var(--display)">₹499 / month</div>
+            <div style="font-size:13px;color:var(--text3);margin-top:4px">Next renewal: January 15, 2025 · Auto-renew ON</div>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <button class="btn btn-ghost" onclick="showToast('Opening payment portal...','success')">Update Payment</button>
+            <button class="btn btn-primary" onclick="showPage('pricing')">Upgrade Plan →</button>
+          </div>
+        </div>
+      </div>
+      <div class="dash-card">
+        <div class="dash-card-title">Payment History</div>
+        <div class="table-wrap" style="border:none">
+          <table>
+            <thead><tr><th>Date</th><th>Plan</th><th>Amount</th><th>Method</th><th>Status</th><th>Invoice</th></tr></thead>
+            <tbody>
+              ${[
+                ['Dec 15, 2024','Pro Monthly','₹499','UPI'],
+                ['Nov 15, 2024','Pro Monthly','₹499','UPI'],
+                ['Oct 15, 2024','Pro Monthly','₹499','Card'],
+                ['Sep 15, 2024','Free → Pro','₹499','Razorpay'],
+              ].map(([d,p,a,m]) => `
+                <tr>
+                  <td>${d}</td><td>${p}</td>
+                  <td style="font-family:var(--mono);font-weight:700;color:var(--green)">${a}</td>
+                  <td>${m}</td>
+                  <td><span class="status-dot dot-green"></span>Paid</td>
+                  <td><button class="btn btn-ghost" style="font-size:12px;padding:4px 10px" onclick="showToast('Downloading...','success')">PDF</button></td>
+                </tr>`).join('')}
+            </tbody>
+          </table>
+        </div>
+      </div>`;
+  } else if (tab === 'crm') {
+    m.innerHTML = `
+      <div class="dash-header"><div><div class="dash-title">CRM Integrations</div><div class="dash-sub">Connect your favourite tools and platforms</div></div></div>
+      <div class="integration-grid" id="crmGrid"></div>`;
+    renderCRM();
+  } else if (tab === 'api') {
+    m.innerHTML = `
+      <div class="dash-header"><div><div class="dash-title">API Keys</div><div class="dash-sub">Use AIToolsHub tools in your own applications</div></div></div>
+      <div class="dash-card">
+        <div class="dash-card-title">Your API Keys</div>
+        <div style="margin-bottom:20px">
+          <label style="margin-bottom:8px;display:block">Live API Key</label>
+          <div style="display:flex;gap:10px">
+            <input type="text" value="aith_live_9x2mK7jP4qR1wZ3cV8nL5bT6..." readonly style="font-family:var(--mono);font-size:13px">
+            <button class="btn btn-ghost" onclick="showToast('API key copied!','success')">Copy</button>
+          </div>
+        </div>
+        <div style="margin-bottom:20px">
+          <label style="margin-bottom:8px;display:block">Test API Key</label>
+          <div style="display:flex;gap:10px">
+            <input type="text" value="aith_test_2kY8nP3qM1rX5vC9wL4bS7..." readonly style="font-family:var(--mono);font-size:13px">
+            <button class="btn btn-ghost" onclick="showToast('API key copied!','success')">Copy</button>
+          </div>
+        </div>
+        <div style="background:rgba(124,92,252,.08);border:1px solid rgba(124,92,252,.2);border-radius:var(--r);padding:16px;font-size:14px;color:var(--text2)">
+          📖 <strong style="color:var(--text)">API Documentation:</strong> View our complete API docs to integrate AIToolsHub tools into your apps, websites, and workflows. Rate limit: 1,000 calls/day on Pro plan.
+        </div>
+        <div style="margin-top:16px;display:flex;gap:10px">
+          <button class="btn btn-ghost" onclick="showToast('Opening API docs...','success')">View API Docs</button>
+          <button class="btn btn-primary" onclick="showToast('Generating new key...','success')">Regenerate Key</button>
+        </div>
+      </div>`;
+  } else if (tab === 'affiliate') {
+    m.innerHTML = `
+      <div class="dash-header"><div><div class="dash-title">Affiliate Earnings</div><div class="dash-sub">Track your referrals and commission earnings</div></div></div>
+      <div class="kpi-grid">
+        <div class="kpi"><div class="kpi-label">Total Earned</div><div class="kpi-value" style="color:var(--green)">₹14,280</div></div>
+        <div class="kpi"><div class="kpi-label">This Month</div><div class="kpi-value" style="color:var(--green)">₹2,840</div></div>
+        <div class="kpi"><div class="kpi-label">Active Referrals</div><div class="kpi-value">23</div></div>
+        <div class="kpi"><div class="kpi-label">Pending Payout</div><div class="kpi-value" style="color:var(--amber)">₹2,840</div></div>
+      </div>
+      <div class="dash-card">
+        <div class="dash-card-title">Your Affiliate Link</div>
+        <div style="display:flex;gap:10px;margin-bottom:20px">
+          <input type="text" value="https://aitoolshub.in/?ref=amit_kumar_202" readonly style="font-family:var(--mono);font-size:13px">
+          <button class="btn btn-primary" onclick="showToast('Referral link copied! Start sharing 🚀','success')">Copy Link</button>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:20px">
+          <button class="btn btn-ghost" style="justify-content:center" onclick="showToast('Sharing on WhatsApp...','success')">📱 WhatsApp</button>
+          <button class="btn btn-ghost" style="justify-content:center" onclick="showToast('Sharing on Twitter...','success')">🐦 Twitter</button>
+          <button class="btn btn-ghost" style="justify-content:center" onclick="showToast('Sharing on LinkedIn...','success')">💼 LinkedIn</button>
+        </div>
+        <div style="background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.2);border-radius:var(--r);padding:16px;font-size:14px;color:var(--text2)">
+          💡 <strong style="color:var(--text)">Payout Info:</strong> Commissions are paid on the 5th of every month via UPI or bank transfer. Minimum payout: ₹500.
+        </div>
+      </div>`;
+  } else {
+    m.innerHTML = `<div class="dash-header"><div><div class="dash-title">${tab.charAt(0).toUpperCase()+tab.slice(1)}</div><div class="dash-sub">Coming soon in next update</div></div></div>
+    <div class="dash-card" style="text-align:center;padding:60px">
+      <div style="font-size:56px;margin-bottom:16px">🚧</div>
+      <h3 style="font-size:20px;margin-bottom:8px">Under Construction</h3>
+      <p style="color:var(--text2)">This section is being built. Check back soon!</p>
+    </div>`;
+  }
+}
+
+function switchDashTab(tab, el) {
+  document.querySelectorAll('.sidebar-item').forEach(i => i.classList.remove('active'));
+  el.classList.add('active');
+  renderDashboard(tab);
+}
+
+// ── CHARTS ──
+function renderUsageChart() {
+  const c = document.getElementById('usageChart');
+  if (!c) return;
+  new Chart(c, {
+    type:'bar',
+    data:{
+      labels:['Week 1','Week 2','Week 3','Week 4'],
+      datasets:[{label:'Credits Used',data:[680,920,740,900],backgroundColor:'rgba(124,92,252,0.6)',borderColor:'#7c5cfc',borderWidth:1,borderRadius:6}]
+    },
+    options:{responsive:true,plugins:{legend:{display:false}},scales:{y:{grid:{color:'rgba(255,255,255,0.05)'},ticks:{color:'#71717a',font:{size:12}}},x:{grid:{display:false},ticks:{color:'#71717a',font:{size:12}}}}}
+  });
+}
+
+function renderAnalyticsChart() {
+  const c = document.getElementById('analyticsChart');
+  if (!c) return;
+  new Chart(c, {
+    type:'line',
+    data:{
+      labels:['Aug','Sep','Oct','Nov','Dec'],
+      datasets:[
+        {label:'Credits',data:[800,1200,2100,2800,3240],borderColor:'#7c5cfc',backgroundColor:'rgba(124,92,252,0.1)',tension:.4,fill:true,borderWidth:2},
+        {label:'Tools',data:[3,4,5,6,7],borderColor:'#06b6d4',backgroundColor:'transparent',tension:.4,borderWidth:2,yAxisID:'y2'}
+      ]
+    },
+    options:{responsive:true,interaction:{mode:'index'},plugins:{legend:{labels:{color:'#a1a1aa',font:{size:12}}}},scales:{y:{grid:{color:'rgba(255,255,255,0.05)'},ticks:{color:'#71717a'}},y2:{position:'right',grid:{display:false},ticks:{color:'#71717a'}},x:{grid:{display:false},ticks:{color:'#71717a'}}}}
+  });
+}
+
+// ── CRM ──
+function renderCRM() {
+  const integrations = [
+    {icon:'📊',name:'Google Sheets',active:true},{icon:'📬',name:'Mailchimp',active:false},
+    {icon:'💬',name:'WhatsApp Biz',active:true},{icon:'🔔',name:'Slack',active:false},
+    {icon:'📝',name:'Notion',active:false},{icon:'🗂️',name:'Zoho CRM',active:false},
+    {icon:'📧',name:'ConvertKit',active:true},{icon:'🎯',name:'HubSpot',active:false},
+    {icon:'🚀',name:'Zapier',active:false},{icon:'⚡',name:'Make (Integromat)',active:false},
+    {icon:'📱',name:'Interakt WA',active:true},{icon:'🏦',name:'Razorpay',active:true},
+  ];
+  const g = document.getElementById('crmGrid');
+  if (!g) return;
+  g.innerHTML = integrations.map((i, idx) => `
+    <div class="integration-card">
+      <div class="integration-icon">${i.icon}</div>
+      <div class="integration-name">${i.name}</div>
+      <div class="integration-status">
+        <span class="status-dot ${i.active ? 'dot-green' : 'dot-red'}"></span>
+        <span style="font-size:12px;color:var(--text3)">${i.active ? 'Connected' : 'Disconnected'}</span>
+      </div>
+      <label class="int-toggle">
+        <input type="checkbox" ${i.active ? 'checked' : ''} onchange="showToast('Integration ${i.active ? 'disconnected' : 'connecting'}...','success')">
+        <span class="int-slider"></span>
+      </label>
+    </div>`).join('');
+}
+
+// ── ADMIN ──
+function renderAdmin(tab) {
+  const c = document.getElementById('adminContent');
+  if (!c) return;
+  if (tab === 'users') {
+    c.innerHTML = `
+      <div style="display:flex;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:10px">
+        <input type="text" placeholder="Search users..." style="max-width:300px">
+        <div style="display:flex;gap:10px">
+          <select><option>All Plans</option><option>Free</option><option>Pro</option><option>Agency</option><option>Lifetime</option></select>
+          <button class="btn btn-primary" onclick="showToast('Exporting users...','success')">Export CSV</button>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>#</th><th>Name</th><th>Email</th><th>Plan</th><th>Credits Used</th><th>Joined</th><th>Revenue</th><th>Status</th><th>Actions</th></tr></thead>
+          <tbody>
+            ${[
+              ['Priya Rajput','priya@email.com','Pro','4,200','Dec 1, 2024','₹499'],
+              ['Suresh Kumar','suresh@ca.com','Agency','∞','Nov 15, 2024','₹1,499'],
+              ['Anita Verma','anita@agency.com','Lifetime','18,400','Oct 5, 2024','₹9,999'],
+              ['Rahul Singh','rahul@startup.com','Free','87','Dec 10, 2024','₹0'],
+              ['Meera Gupta','meera@creator.com','Pro','3,100','Nov 20, 2024','₹499'],
+            ].map(([n,e,p,c,j,r], i) => `
+              <tr>
+                <td style="color:var(--text3)">${i+1}</td>
+                <td style="font-weight:600">${n}</td>
+                <td style="color:var(--text2);font-size:13px">${e}</td>
+                <td><span class="tag" style="background:rgba(124,92,252,.1);color:var(--accent3);font-size:11px">${p}</span></td>
+                <td style="font-family:var(--mono)">${c}</td>
+                <td style="font-size:13px;color:var(--text3)">${j}</td>
+                <td style="font-family:var(--mono);color:var(--green)">${r}</td>
+                <td><span class="status-dot dot-green"></span>Active</td>
+                <td style="display:flex;gap:6px"><button class="btn btn-ghost" style="font-size:12px;padding:4px 8px">Edit</button><button class="btn btn-ghost" style="font-size:12px;padding:4px 8px;color:var(--red)">Ban</button></td>
+              </tr>`).join('')}
+          </tbody>
+        </table>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-top:16px;font-size:13px;color:var(--text3)">
+        <span>Showing 5 of 50,000 users</span>
+        <div style="display:flex;gap:8px">
+          <button class="btn btn-ghost" style="font-size:12px;padding:4px 12px">← Prev</button>
+          <button class="btn btn-ghost" style="font-size:12px;padding:4px 12px">Next →</button>
+        </div>
+      </div>`;
+  } else if (tab === 'revenue') {
+    c.innerHTML = `
+      <div class="kpi-grid" style="margin-bottom:24px">
+        <div class="kpi"><div class="kpi-label">Total Revenue</div><div class="kpi-value" style="color:var(--green)">₹18.4L</div><div class="kpi-change up">↑ 34% YoY</div></div>
+        <div class="kpi"><div class="kpi-label">MRR</div><div class="kpi-value" style="color:var(--green)">₹1.64L</div><div class="kpi-change up">↑ 12% MoM</div></div>
+        <div class="kpi"><div class="kpi-label">Active Subscribers</div><div class="kpi-value">328</div><div class="kpi-change up">↑ 28 this month</div></div>
+        <div class="kpi"><div class="kpi-label">Churn Rate</div><div class="kpi-value" style="color:var(--amber)">2.4%</div><div class="kpi-change up">↓ 0.3%</div></div>
+      </div>
+      <div class="dash-card">
+        <div class="dash-card-title">Revenue by Plan</div>
+        ${[['Pro (328)','₹1,63,672','67%'],['Agency (84)','₹1,25,916','26%'],['Lifetime (47)','₹4,69,953','n/a'],['Sponsored Tools (12)','₹11,988','5%']].map(([p,r,pct]) => `
+          <div class="analytics-bar">
+            <div class="bar-label" style="width:160px">${p}</div>
+            <div class="bar-track"><div class="bar-fill" style="width:${pct === 'n/a' ? '30%' : pct}"></div></div>
+            <div class="bar-val">${r}</div>
+          </div>`).join('')}
+      </div>`;
+  } else if (tab === 'leads') {
+    c.innerHTML = `
+      <div style="display:flex;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:10px">
+        <div><div style="font-size:22px;font-weight:800;font-family:var(--display)">Email Leads</div>
+        <div style="font-size:14px;color:var(--text2)">Total: 8,420 leads collected · Last 24hrs: +156</div></div>
+        <div style="display:flex;gap:10px">
+          <button class="btn btn-ghost" onclick="showToast('Syncing with Mailchimp...','success')">Sync to Mailchimp</button>
+          <button class="btn btn-primary" onclick="showToast('Exporting leads CSV...','success')">Export All Leads</button>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Email</th><th>Source</th><th>Date</th><th>Plan Interest</th><th>Status</th></tr></thead>
+          <tbody>
+            ${[
+              ['priya.freelancer@gmail.com','Home Hero Form','Dec 15','Pro','Subscribed'],
+              ['suresh.ca@yahoo.com','Pricing Page','Dec 14','Agency','Pending'],
+              ['rahul.d.marketer@gmail.com','Blog Post','Dec 14','Pro','Subscribed'],
+              ['meera.designs@outlook.com','Affiliate Page','Dec 13','Lifetime','Subscribed'],
+              ['amit.startup@gmail.com','Contact Form','Dec 12','Pro','Pending'],
+            ].map(([e,s,d,p,st]) => `
+              <tr>
+                <td style="font-family:var(--mono);font-size:13px">${e}</td>
+                <td style="color:var(--text2);font-size:13px">${s}</td>
+                <td style="color:var(--text3);font-size:13px">${d}</td>
+                <td><span class="tag" style="background:rgba(124,92,252,.1);color:var(--accent3);font-size:11px">${p}</span></td>
+                <td><span class="status-dot ${st==='Subscribed'?'dot-green':'dot-amber'}"></span>${st}</td>
+              </tr>`).join('')}
+          </tbody>
+        </table>
+      </div>`;
+  } else if (tab === 'settings') {
+    c.innerHTML = `
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
+        <div class="dash-card">
+          <div class="dash-card-title">Site Settings</div>
+          <div class="form-group"><label>Site Name</label><input type="text" value="AIToolsHub"></div>
+          <div class="form-group"><label>Support Email</label><input type="email" value="hello@aitoolshub.in"></div>
+          <div class="form-group"><label>WhatsApp Number</label><input type="tel" value="+91 98765 43210"></div>
+          <div class="form-group"><label>GST Number</label><input type="text" value="22AAAAA0000A1Z5"></div>
+          <button class="btn btn-primary" onclick="showToast('Settings saved!','success')">Save Settings</button>
+        </div>
+        <div class="dash-card">
+          <div class="dash-card-title">Payment Settings</div>
+          <div class="form-group"><label>Razorpay Key ID</label><input type="text" value="rzp_live_••••••••••••••" placeholder="rzp_live_..."></div>
+          <div class="form-group"><label>Stripe Secret Key</label><input type="text" value="sk_live_••••••••••••••" placeholder="sk_live_..."></div>
+          <div class="form-group"><label>UPI ID</label><input type="text" value="aitoolshub@hdfc"></div>
+          <div class="form-group"><label>GST Rate (%)</label><select><option>18% (Standard)</option><option>12%</option><option>5%</option><option>0%</option></select></div>
+          <button class="btn btn-primary" onclick="showToast('Payment settings saved!','success')">Save Payment Config</button>
+        </div>
+        <div class="dash-card">
+          <div class="dash-card-title">Email / SMTP Settings</div>
+          <div class="form-group"><label>SMTP Host</label><input type="text" value="smtp.gmail.com"></div>
+          <div class="form-group"><label>SMTP Port</label><input type="text" value="587"></div>
+          <div class="form-group"><label>SMTP Username</label><input type="email" value="noreply@aitoolshub.in"></div>
+          <div class="form-group"><label>From Name</label><input type="text" value="AIToolsHub Team"></div>
+          <button class="btn btn-ghost" onclick="showToast('Test email sent!','success')">Send Test Email</button>
+        </div>
+        <div class="dash-card">
+          <div class="dash-card-title">SEO Settings</div>
+          <div class="form-group"><label>Meta Title</label><input type="text" value="AIToolsHub – AI Tools for Indian Businesses"></div>
+          <div class="form-group"><label>Meta Description</label><textarea rows="3">100+ premium AI tools for freelancers, agencies, MSMEs, and creators. Boost productivity with India's #1 AI tools marketplace.</textarea></div>
+          <div class="form-group"><label>Google Analytics ID</label><input type="text" value="G-XXXXXXXXXX"></div>
+          <button class="btn btn-primary" onclick="showToast('SEO settings saved!','success')">Save SEO Settings</button>
+        </div>
+      </div>`;
+  } else {
+    c.innerHTML = `<div class="dash-card" style="text-align:center;padding:60px">
+      <div style="font-size:56px;margin-bottom:16px">🚧</div>
+      <h3 style="font-size:20px;margin-bottom:8px">${tab.charAt(0).toUpperCase()+tab.slice(1)} Panel</h3>
+      <p style="color:var(--text2)">This admin section is being built. Check back soon!</p>
+    </div>`;
+  }
+}
+
+function switchAdminTab(tab, btn) {
+  document.querySelectorAll('.admin-tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  renderAdmin(tab);
+}
+
+// ── TOOL SUBMISSION ──
+function selectListing(el, type) {
+  document.querySelectorAll('.listing-opt').forEach(o => {
+    o.style.border = '1px solid var(--border2)';
+    o.style.background = 'var(--surface)';
+  });
+  el.style.border = '2px solid var(--accent)';
+  el.style.background = 'var(--surface2)';
+}
+
+// ── TOAST ──
+function showToast(msg, type='success') {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = 'toast ' + type + ' show';
+  clearTimeout(t._timer);
+  t._timer = setTimeout(() => t.classList.remove('show'), 3500);
+}
+
+// ── INIT ──
+(function init() {
+  renderFAQs();
+  // Keyboard nav
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      closeModal();
+      document.getElementById('checkoutModal').classList.remove('open');
+    }
+  });
+  // Close modal on overlay click
+  document.getElementById('authModal').addEventListener('click', e => { if(e.target.id === 'authModal') closeModal(); });
+  document.getElementById('checkoutModal').addEventListener('click', e => { if(e.target.id === 'checkoutModal') document.getElementById('checkoutModal').classList.remove('open'); });
+})();
+</script>
+</body>
+</html>
